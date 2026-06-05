@@ -5,7 +5,7 @@ CONST_BASE_DOMAIN_MOD = False
 CONST_BASE_IP = ''
 
 CONST_URLS = {
-    'base': 'https://t-mobiletv.nl',
+    'base': 'https://tv.odido.nl',
     'gigya': 'https://accounts.eu1.gigya.com'
 }
 
