@@ -52,7 +52,7 @@ def plugin_check_devices():
 
 def plugin_check_first():
     try:
-        requests.get('https://t-mobiletv.nl')
+        requests.get('https://tv.odido.nl')
     except requests.exceptions.SSLError as err:
         customca = requests.get('https://cacerts.digicert.com/DigiCertTLSRSASHA2562020CA1-1.crt.pem').content
         cafile = certifi.where()
