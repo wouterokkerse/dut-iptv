@@ -106,9 +106,9 @@ CONST_BASE_HEADERS['tmobile'] = {
     'Accept-Language': 'en-US,en;q=0.9,nl;q=0.8',
     'Cache-Control': 'no-cache',
     'DNT': '1',
-    'Origin': 'https://t-mobiletv.nl',
+    'Origin': 'https://tv.odido.nl',
     'Pragma': 'no-cache',
-    'Referer': 'https://t-mobiletv.nl/',
+    'Referer': 'https://tv.odido.nl/',
     'Sec-Fetch-Dest': 'empty',
     'Sec-Fetch-Mode': 'cors',
     'Sec-Fetch-Site': 'same-origin',
@@ -149,4 +149,4 @@ AUDIO_LANGUAGES_REV = {
     'Onbekend/Unknown': 'unk'
 }
 
-DEFAULT_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'
+DEFAULT_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36'

@@ -2,11 +2,11 @@
 
 ### About
 
--Watch T-Mobile Anywhere live TV and content from anywhere in the EU
+-Watch Odido TV live TV and content from anywhere in the EU
 
 ### Features
 
--Unofficial 3rd Party T-Mobile Anywhere plugin for Kodi
+-Unofficial 3rd Party Odido TV plugin for Kodi
 
 -Watch live TV for supported channels in your subscription
 
@@ -26,7 +26,7 @@
 
 ### Required
 
--Subscription to T-Mobile TV (not free)
+-Subscription to Odido TV (not free)
 
 -Kodi 19 or higher with Widevine Support (free)
 

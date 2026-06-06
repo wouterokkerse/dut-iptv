@@ -442,13 +442,7 @@ def extract_zip(file, dest):
                     zipObj.extractall(dest)
 
             except:
-                try:
-                    from resources.lib.base.l1.zipfile import ZipFile as ZipFile2
-
-                    with ZipFile2(file, 'r') as zipObj:
-                        zipObj.extractall(dest)
-                except:
-                    return None
+                return None
 
     return True
 

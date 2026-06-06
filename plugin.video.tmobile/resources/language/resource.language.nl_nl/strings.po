@@ -1,5 +1,5 @@
 # KODI Media Center language file
-# Addon Name: T-Mobile Anywhere
+# Addon Name: Odido TV
 # Addon id: plugin.video.tmobile
 # Addon Provider: Anon
 msgid ""
@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgctxt "#30001"
-msgid "T-Mobile TV customer no."
-msgstr "T-Mobile TV klantnummer"
+msgid "Odido TV customer no."
+msgstr "Odido TV klantnummer"
 
 msgctxt "#30002"
-msgid "T-Mobile TV pincode"
-msgstr "T-Mobile TV pincode"
+msgid "Odido TV pincode"
+msgstr "Odido TV pincode"
 
 msgctxt "#30003"
 msgid "Auto setup IPTV"
@@ -73,8 +73,8 @@ msgid "Load only default channels"
 msgstr "Alleen standaard zenders laden"
 
 msgctxt "#30033"
-msgid "Error Logging in to T-Mobile"
-msgstr "Fout bij het inloggen bij T-Mobile"
+msgid "Error Logging in to Odido"
+msgstr "Fout bij het inloggen bij Odido"
 
 msgctxt "#30034"
 msgid "Check your TV customer number and pincode"

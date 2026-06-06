@@ -239,6 +239,7 @@ def api_login():
 
 def api_play_url(type, channel=None, id=None, video_data=None, from_beginning=0, pvr=0, change_audio=0):
     playdata = {'path': '', 'license': '', 'info': '', 'properties': {}}
+    license = ''
 
     if not api_get_session():
         return playdata
@@ -481,7 +482,7 @@ def api_vod_season(series, id, use_cache=True):
 
     return {'data': data, 'cache': cache}
 
-def api_vod_seasons(type, id):
+def api_vod_seasons(type, id, use_cache=True):
     if not api_get_session():
         return None
 

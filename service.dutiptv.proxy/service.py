@@ -187,16 +187,16 @@ class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
                 xml = r.text
 
                 if 'mpd' in xml.lower():
-                    #write_file(file=ADDON_PROFILE + 'full_url', data=URL, isJSON=False)
-                    #write_file(file=ADDON_PROFILE + 'orig.mpd', data=xml, isJSON=False)
+                    write_file(file=ADDON_PROFILE + 'full_url', data=URL, isJSON=False)
+                    write_file(file=ADDON_PROFILE + 'orig.mpd', data=xml, isJSON=False)
 
                     xml = sly_mpd_parse(data=xml).decode('utf-8')
 
-                    #write_file(file=ADDON_PROFILE + 'after_sly_mpd_parse.mpd', data=xml, isJSON=False)
+                    write_file(file=ADDON_PROFILE + 'after_sly_mpd_parse.mpd', data=xml, isJSON=False)
 
                     xml = mpd_parse(data=xml, addon_name=addon_name, URL=URL).decode('utf-8')
 
-                    #write_file(file=ADDON_PROFILE + 'after_mpd_parse.mpd', data=xml, isJSON=False)
+                    write_file(file=ADDON_PROFILE + 'after_mpd_parse.mpd', data=xml, isJSON=False)
 
                 self.send_response(r.status_code)
 
@@ -236,9 +236,37 @@ class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
                     xbmc.executebuiltin('RunPlugin(%s)' % (token_renew))
                     last_token = int(time.time()) + 60
 
-                self.send_response(302)
-                self.send_header('Location', URL)
-                self.end_headers()
+                if addon_name == 'tmobile':
+                    session = proxy_get_session(proxy=self, addon_name=addon_name)
+                    write_file(file=ADDON_PROFILE + 'proxy_request_headers', data=dict(session.headers), isJSON=True)
+                    r = session.get(URL)
+                    write_file(file=ADDON_PROFILE + 'proxy_prepared_headers', data=dict(r.request.headers), isJSON=True)
+
+                    if r.status_code >= 400:
+                        write_file(file=ADDON_PROFILE + 'proxy_error_url', data=URL, isJSON=False)
+                        write_file(file=ADDON_PROFILE + 'proxy_error_status', data=str(r.status_code), isJSON=False)
+                        write_file(file=ADDON_PROFILE + 'proxy_error_headers', data=dict(r.headers), isJSON=True)
+                        write_file(file=ADDON_PROFILE + 'proxy_error_body', data=r.text[:1000], isJSON=False)
+
+                    self.send_response(r.status_code)
+                    self.send_header('Content-Length', str(len(r.content)))
+
+                    for header in r.headers:
+                        if not 'Content-Encoding' in header and not 'Transfer-Encoding' in header and not 'Content-Length' in header:
+                            self.send_header(header, r.headers[header])
+
+                    self.end_headers()
+
+                    try:
+                        self.wfile.write(r.content)
+                    except:
+                        pass
+
+                    r.close()
+                else:
+                    self.send_response(302)
+                    self.send_header('Location', URL)
+                    self.end_headers()
 
                 try:
                     self.connection.close()
@@ -322,6 +350,12 @@ class Session(requests.Session):
         ADDON = xbmcaddon.Addon(id="plugin.video." + addon_name)
 
         self._addon_profile = xbmcvfs.translatePath(ADDON.getAddonInfo('profile'))
+
+        if addon_name == 'tmobile':
+            profile = load_file(file=self._addon_profile + 'profile.json', isJSON=True)
+
+            if profile and check_key(profile, 'csrf_token'):
+                self._headers.update({'X_CSRFToken': profile['csrf_token']})
 
         self.headers.update(self._headers)
 
@@ -806,6 +840,8 @@ def proxy_get_url(proxy, addon_name, ADDON_PROFILE):
 
     if addon_name == 'betelenet' or addon_name == 'ziggo':
         return stream_url[addon_name] + str(proxy.path).replace('WIDEVINETOKEN', load_file(file=ADDON_PROFILE + 'widevine_token', isJSON=False))
+    elif addon_name == 'tmobile':
+        return stream_url[addon_name] + str(proxy.path)
     else:
         return stream_url[addon_name] + str(proxy.path)
 
