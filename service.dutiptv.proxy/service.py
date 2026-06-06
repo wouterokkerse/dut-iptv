@@ -1,5 +1,6 @@
 import base64, datetime, io, json, pytz, os, re, requests, sys, threading, time, xbmc, xbmcaddon, xbmcvfs, xbmcgui
 import http.server as ProxyServer
+import socketserver
 
 from collections import OrderedDict
 from resources.lib.constants import *
@@ -54,7 +55,10 @@ class HTTPMonitor(xbmc.Monitor):
         super(HTTPMonitor, self).__init__()
         self.addon = addon
 
-class HTTPServer(ProxyServer.HTTPServer):
+class HTTPServer(socketserver.ThreadingMixIn, ProxyServer.HTTPServer):
+    daemon_threads = True
+    allow_reuse_address = True
+
     def __init__(self, addon, server_address):
         ProxyServer.HTTPServer.__init__(self, server_address, HTTPRequestHandler)
         self.addon = addon
@@ -215,6 +219,9 @@ class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
 
                 if 'mpd' in xml.lower():
                     write_file(file=ADDON_PROFILE + 'full_url', data=URL, isJSON=False)
+                    write_file(file=ADDON_PROFILE + 'final_url', data=r.url, isJSON=False)
+                    if addon_name == 'tmobile' and addon_name in stream_base_url:
+                        write_file(file=ADDON_PROFILE + 'stream_base_url', data=stream_base_url[addon_name], isJSON=False)
                     write_file(file=ADDON_PROFILE + 'orig.mpd', data=xml, isJSON=False)
 
                     xml = sly_mpd_parse(data=xml).decode('utf-8')
@@ -266,7 +273,7 @@ class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
                 if addon_name == 'tmobile':
                     session = proxy_get_session(proxy=self, addon_name=addon_name)
                     write_file(file=ADDON_PROFILE + 'proxy_request_headers', data=dict(session.headers), isJSON=True)
-                    r = session.get(URL)
+                    r = session.get(URL, stream=True)
                     write_file(file=ADDON_PROFILE + 'proxy_prepared_headers', data=dict(r.request.headers), isJSON=True)
 
                     if r.status_code >= 400:
@@ -276,7 +283,9 @@ class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
                         write_file(file=ADDON_PROFILE + 'proxy_error_body', data=r.text[:1000], isJSON=False)
 
                     self.send_response(r.status_code)
-                    self.send_header('Content-Length', str(len(r.content)))
+
+                    if 'Content-Length' in r.headers:
+                        self.send_header('Content-Length', r.headers['Content-Length'])
 
                     for header in r.headers:
                         if not 'Content-Encoding' in header and not 'Transfer-Encoding' in header and not 'Content-Length' in header:
@@ -285,7 +294,10 @@ class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
                     self.end_headers()
 
                     try:
-                        self.wfile.write(r.content)
+                        for chunk in r.iter_content(chunk_size=65536):
+                            if not chunk:
+                                continue
+                            self.wfile.write(chunk)
                     except:
                         pass
 
@@ -864,16 +876,19 @@ def proxy_get_session(proxy, addon_name):
 
 def proxy_get_url(proxy, addon_name, ADDON_PROFILE):
     global stream_url, stream_base_url
+    path = str(proxy.path)
 
     if addon_name == 'betelenet' or addon_name == 'ziggo':
-        return stream_url[addon_name] + str(proxy.path).replace('WIDEVINETOKEN', load_file(file=ADDON_PROFILE + 'widevine_token', isJSON=False))
+        return stream_url[addon_name] + path.replace('WIDEVINETOKEN', load_file(file=ADDON_PROFILE + 'widevine_token', isJSON=False))
     elif addon_name == 'tmobile':
-        if str(proxy.path).startswith('PLTV/') and addon_name in stream_base_url:
-            return stream_base_url[addon_name] + str(proxy.path)
+        path_no_slash = path.lstrip('/')
 
-        return stream_url[addon_name] + str(proxy.path)
+        if path_no_slash.startswith('PLTV/') and addon_name in stream_base_url:
+            return stream_base_url[addon_name] + path_no_slash
+
+        return stream_url[addon_name] + path
     else:
-        return stream_url[addon_name] + str(proxy.path)
+        return stream_url[addon_name] + path
 
 def tmobile_build_browser_style_mpd_url(url, xml):
     if 'hms_devid=' in url and 'mag_hms=' in url and 'RTS=' in url and 'from=' in url:

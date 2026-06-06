@@ -410,6 +410,13 @@ def api_play_url(type, channel=None, id=None, video_data=None, from_beginning=0,
     data = download['data']
     code = download['code']
 
+    try:
+        write_file(file='playchannel_response.json', data=data, isJSON=True)
+        write_file(file='playchannel_response_url', data=download['url'], isJSON=False)
+        write_file(file='playchannel_response_headers.json', data=dict(download['headers']), isJSON=True)
+    except:
+        pass
+
     if not code or not code == 200 or not data or not check_key(data, 'result') or not check_key(data['result'], 'retCode') or not data['result']['retCode'] == '000000000' or not check_key(data, 'playURL'):
         return playdata
 
