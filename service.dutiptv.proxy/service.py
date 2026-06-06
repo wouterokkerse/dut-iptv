@@ -5,8 +5,10 @@ from collections import OrderedDict
 from resources.lib.constants import *
 from resources.lib.dnsutils import override_dns
 from xml.dom.minidom import parseString
+from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 stream_url = {}
+stream_base_url = {}
 stream_license = {}
 now_playing = 0
 last_token = 0
@@ -184,7 +186,32 @@ class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
                 session = proxy_get_session(proxy=self, addon_name=addon_name)
                 r = session.get(URL)
 
+                if addon_name == 'tmobile':
+                    final_url = r.url
+
+                    if '/PLTV/' in final_url:
+                        stream_base_url[addon_name] = final_url.split('/PLTV/', 1)[0] + '/'
+
                 xml = r.text
+
+                if addon_name == 'tmobile' and 'mpd' in xml.lower():
+                    retry_url = tmobile_build_browser_style_mpd_url(URL, xml)
+
+                    if retry_url != URL:
+                        r_retry = session.get(retry_url)
+
+                        if r_retry.status_code == 200 and 'mpd' in r_retry.text.lower():
+                            r.close()
+                            r = r_retry
+                            URL = retry_url
+                            xml = r.text
+
+                            final_url = r.url
+
+                            if '/PLTV/' in final_url:
+                                stream_base_url[addon_name] = final_url.split('/PLTV/', 1)[0] + '/'
+                        else:
+                            r_retry.close()
 
                 if 'mpd' in xml.lower():
                     write_file(file=ADDON_PROFILE + 'full_url', data=URL, isJSON=False)
@@ -836,14 +863,47 @@ def proxy_get_session(proxy, addon_name):
         return Session(addon_name=addon_name, cookies_key='cookies', save_cookies=False)
 
 def proxy_get_url(proxy, addon_name, ADDON_PROFILE):
-    global stream_url
+    global stream_url, stream_base_url
 
     if addon_name == 'betelenet' or addon_name == 'ziggo':
         return stream_url[addon_name] + str(proxy.path).replace('WIDEVINETOKEN', load_file(file=ADDON_PROFILE + 'widevine_token', isJSON=False))
     elif addon_name == 'tmobile':
+        if str(proxy.path).startswith('PLTV/') and addon_name in stream_base_url:
+            return stream_base_url[addon_name] + str(proxy.path)
+
         return stream_url[addon_name] + str(proxy.path)
     else:
         return stream_url[addon_name] + str(proxy.path)
+
+def tmobile_build_browser_style_mpd_url(url, xml):
+    if 'hms_devid=' in url and 'mag_hms=' in url and 'RTS=' in url and 'from=' in url:
+        return url
+
+    service_match = re.search(r'service_devid=([^&"]+)', xml)
+    mag_match = re.search(r'mag_hms=([^&"]+)', xml)
+    online_match = re.search(r'online=([^&"]+)', xml)
+    pltv_match = re.search(r'/PLTV/([^/]+)/', url)
+
+    if not service_match or not mag_match or not online_match:
+        return url
+
+    parsed = urlparse(url)
+    query = OrderedDict(parse_qsl(parsed.query, keep_blank_values=True))
+
+    query['hms_devid'] = service_match.group(1)
+    query['mag_hms'] = mag_match.group(1)
+    query['online'] = online_match.group(1)
+    query['RTS'] = online_match.group(1)
+    query['_'] = str(int(time.time() * 1000))
+
+    if 'from' not in query:
+        query['from'] = '14'
+
+    if 'icpid' not in query or not query['icpid']:
+        if pltv_match:
+            query['icpid'] = pltv_match.group(1)
+
+    return urlunparse(parsed._replace(query=urlencode(query)))
 
 def write_file(file, data, isJSON=False):
     with io.open(file, 'w', encoding="utf-8") as f:
