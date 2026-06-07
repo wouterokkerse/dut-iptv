@@ -1465,7 +1465,7 @@ def process_replaytv_content(station, day=0, start=0):
         if check_key(CONST_WATCHLIST, 'replay') and check_key(CONST_WATCHLIST['replay'], program_type) and CONST_WATCHLIST_CAPABILITY[CONST_WATCHLIST['replay'][program_type]['type']]['add'] == 1:
             context.append((CONST_WATCHLIST_CAPABILITY[CONST_WATCHLIST['replay'][program_type]['type']]['addlist'], 'RunPlugin({context_url})'.format(context_url=plugin.url_for(func_or_url=add_to_watchlist, id=program_id, program_type=program_type, type=CONST_WATCHLIST['replay'][program_type]['type'])), ))
 
-        context.append((_.SELECT_AUDIO_LANGUAGE, 'RunPlugin({context_url})'.format(context_url=plugin.url_for(func_or_url=play_video, type='program', channel=channel, id=program_id, change_audio=1)), ))
+        context.append((_.SELECT_AUDIO_LANGUAGE, 'RunPlugin({context_url})'.format(context_url=plugin.url_for(func_or_url=play_video, type='program', channel=channel, id=program_id, pvr=1, _l='.pvr', change_audio=1)), ))
 
         items.append(plugin.Item(
             label = label,
@@ -1479,7 +1479,7 @@ def process_replaytv_content(station, day=0, start=0):
                 'thumb': image,
                 'fanart': image
             },
-            path = plugin.url_for(func_or_url=play_video, type='program', channel=channel, id=program_id),
+            path = plugin.url_for(func_or_url=play_video, type='program', channel=channel, id=program_id, pvr=1, _l='.pvr'),
             context = context,
             playable = True,
         ))
@@ -1565,7 +1565,7 @@ def process_replaytv_list_content(label, idtitle, start=0):
         if check_key(CONST_WATCHLIST, 'replay') and check_key(CONST_WATCHLIST['replay'], program_type) and CONST_WATCHLIST_CAPABILITY[CONST_WATCHLIST['replay'][program_type]['type']]['add'] == 1:
             context.append((CONST_WATCHLIST_CAPABILITY[CONST_WATCHLIST['replay'][program_type]['type']]['addlist'], 'RunPlugin({context_url})'.format(context_url=plugin.url_for(func_or_url=add_to_watchlist, id=program_id, program_type=program_type, type=CONST_WATCHLIST['replay'][program_type]['type'])), ))
 
-        context.append((_.SELECT_AUDIO_LANGUAGE, 'RunPlugin({context_url})'.format(context_url=plugin.url_for(func_or_url=play_video, type='program', channel=channel, id=program_id, change_audio=1)), ))
+        context.append((_.SELECT_AUDIO_LANGUAGE, 'RunPlugin({context_url})'.format(context_url=plugin.url_for(func_or_url=play_video, type='program', channel=channel, id=program_id, pvr=1, _l='.pvr', change_audio=1)), ))
 
         items.append(plugin.Item(
             label = itemlabel,
@@ -1579,7 +1579,7 @@ def process_replaytv_list_content(label, idtitle, start=0):
                 'thumb': image,
                 'fanart': image
             },
-            path = plugin.url_for(func_or_url=play_video, type='program', channel=channel, id=program_id),
+            path = plugin.url_for(func_or_url=play_video, type='program', channel=channel, id=program_id, pvr=1, _l='.pvr'),
             playable = True,
             context = context
         ))
