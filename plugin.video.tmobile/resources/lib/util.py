@@ -129,30 +129,40 @@ def plugin_process_info(playdata):
 def plugin_process_playdata(playdata):
     profile_settings = load_profile(profile_id=1)
 
-    CDMHEADERS = {
+    license_headers = {
         'User-Agent': DEFAULT_USER_AGENT,
         'X_CSRFToken': profile_settings['csrf_token'],
         'Cookie': playdata['license']['cookie'],
+    }
+    manifest_headers = {
+        'User-Agent': DEFAULT_USER_AGENT,
+    }
+    stream_headers = {
+        'User-Agent': DEFAULT_USER_AGENT,
     }
 
     if check_key(playdata, 'license') and check_key(playdata['license'], 'triggers') and check_key(playdata['license']['triggers'][0], 'licenseURL'):
         item_inputstream = inputstream.Widevine(
             #license_key = playdata['license']['triggers'][0]['licenseURL'],
             #manifest_update_parameter = 'update',
-            license_key = "http://127.0.0.1:11189/{provider}/license".format(provider=PROVIDER_NAME)
+            license_key = "http://127.0.0.1:11189/{provider}/license".format(provider=PROVIDER_NAME),
+            manifest_headers = manifest_headers,
+            stream_headers = stream_headers,
+            license_headers = license_headers,
         )
         
         write_file(file='stream_license', data=playdata['license']['triggers'][0]['licenseURL'], isJSON=False)
 
         if check_key(playdata['license']['triggers'][0], 'customData'):
-            CDMHEADERS['AcquireLicense.CustomData'] = playdata['license']['triggers'][0]['customData']
-            CDMHEADERS['CADeviceType'] = 'Widevine OTT client'
+            license_headers['AcquireLicense.CustomData'] = playdata['license']['triggers'][0]['customData']
+            license_headers['CADeviceType'] = 'Widevine OTT client'
     else:
         item_inputstream = inputstream.MPD(
             #manifest_update_parameter = 'update',
         )
+        license_headers = stream_headers
 
-    return item_inputstream, CDMHEADERS
+    return item_inputstream, license_headers
 
 def plugin_process_vod(data, start=0):
     items = {}

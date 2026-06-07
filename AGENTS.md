@@ -7,20 +7,26 @@ Make `plugin.video.tmobile` work against Odido TV.
 ## High-level result
 
 - Login works.
-- Playback was failing because Kodi/proxy segment requests were going to `lb.tvx.prd.tv.odido.nl`, while the working browser player uses `mag01.tvx.prd.tv.odido.nl/wh.../PLTV/...`.
-- A temporary forced proxy base was added, and with that the stream now loads.
+- Playback now works.
+- The final fix was to make the proxy follow Odido's real redirect chain and reuse the final redirected media base dynamically.
+- Buffering and channel-switch instability were fixed in the proxy.
+- RTL4/Widevine playback is not fully resolved on this Linux laptop, but the same account/stream works on the phone, so the remaining issue is most likely local Widevine/CDM/runtime-specific rather than the Odido add-on flow itself.
 
 ## Important current state
 
-The current playback success depends on a temporary hardcoded media base in:
+Current playback does not depend on a hardcoded media base anymore.
+
+Current `tmobile`/Odido playback flow:
+
+1. `PlayChannel` still returns an `lb.tvx...` MPD URL
+2. the proxy fetches that MPD and follows redirects
+3. Odido redirects `lb.tvx... -> rrs02y... -> mag01.../wh...`
+4. the proxy stores the final redirected base from `r.url`
+5. later `PLTV/...` segment requests reuse that dynamic stored base
+
+This is implemented in:
 
 - [service.dutiptv.proxy/service.py](/home/wouter/code/dut-iptv/service.dutiptv.proxy/service.py)
-
-Specifically:
-
-- `TMOBILE_FORCED_MEDIA_BASE = 'https://mag01.tvx.prd.tv.odido.nl/wh7f454c46tw3523540977_-1576042956/'`
-
-This is a diagnostic workaround, not a general solution. The `wh...` prefix appears session/path specific and was taken from a working Firefox HAR.
 
 ## Files changed
 
@@ -52,6 +58,8 @@ This is a diagnostic workaround, not a general solution. The `wh...` prefix appe
   - proxy fetches `tmobile` media itself instead of redirecting
   - writes diagnostics:
     - `full_url`
+    - `final_url`
+    - `stream_base_url`
     - `orig.mpd`
     - `after_sly_mpd_parse.mpd`
     - `after_mpd_parse.mpd`
@@ -67,7 +75,9 @@ This is a diagnostic workaround, not a general solution. The `wh...` prefix appe
     - `RTS`
     - `from=14`
     - `_`
-  - contains the temporary forced `mag01/wh...` media base
+  - stores the final redirected MPD base dynamically and reuses it for later `PLTV/...` requests
+  - streams segment responses through with `stream=True` and `iter_content(...)` instead of buffering `r.content`
+  - uses a threaded HTTP server so status checks and media requests can run concurrently
 
 ## Key findings
 
@@ -97,6 +107,8 @@ Conclusion:
 
 - the missing piece was not credentials alone
 - the main issue was wrong media host/path
+- the browser gets the usable media path only after following Odido's redirect chain
+- Kodi needed the proxy to preserve and reuse that final redirected base dynamically
 
 ### 3. What was ruled out
 
@@ -119,6 +131,35 @@ This was later reverted because it interfered with the browser session and was n
 
 Current add-on profile was reset back to Kodi-managed device state.
 
+### 5. Redirect chain from browser HAR
+
+The pre-playback HAR showed the actual working flow:
+
+1. `PlayChannel` returns `lb.tvx...`
+2. browser requests that MPD on `lb.tvx...`
+3. `lb.tvx...` returns `302` to `rrs02y...`
+4. `rrs02y...` returns `302` to `mag01.../wh...`
+5. browser uses that final `mag01/wh...` base for MPD and segments
+
+That finding replaced the temporary hardcoded `mag01/wh...` workaround with the current dynamic proxy fix.
+
+### 6. Proxy performance and stability
+
+Two additional proxy issues were causing poor playback behavior after the URL problem was fixed:
+
+- segment responses were buffered completely in Python before being written to Kodi
+- the proxy server was single-threaded, so active media requests could block `/status` checks and channel switches
+
+Fixes:
+
+- stream Odido segment responses with `stream=True` and `iter_content(...)`
+- use `socketserver.ThreadingMixIn` for the local proxy HTTP server
+
+Result:
+
+- buffering became normal
+- channel switching stopped tripping the "Proxy is not correctly started" error
+
 ## Diagnostics that proved useful
 
 ### Kodi / proxy local files
@@ -130,6 +171,8 @@ Under:
 Useful files:
 
 - `full_url`
+- `final_url`
+- `stream_base_url`
 - `orig.mpd`
 - `proxy_error_url`
 - `proxy_prepared_headers`
@@ -149,21 +192,32 @@ What it showed:
 
 ## Remaining technical debt
 
-The current workaround is not robust because:
+The main functional work is done. Remaining cleanup is mostly diagnostic debt:
 
-- `TMOBILE_FORCED_MEDIA_BASE` is hardcoded
-- the `wh...` prefix likely changes between sessions or playback contexts
+- decide which temporary diagnostic files should stay vs be removed
+- decide whether `playchannel_response*.json` dumps should remain in `api.py`
+- decide whether proxy debug files should remain in normal builds
+- decide whether the laptop-specific Widevine investigation should stay in-tree or just be documented as an environment issue
 
 ## Recommended next step
 
-Replace the hardcoded `TMOBILE_FORCED_MEDIA_BASE` with a dynamic derivation from a pre-playback browser/bootstrap step, if that step can be identified.
+If this is going to be kept long-term, trim the extra diagnostics and keep the dynamic redirect handling, streamed segment forwarding, and threaded proxy server as the permanent Odido support path.
 
-Most likely future work:
+For RTL4 and similar DRM channels, treat the remaining crash as a local platform issue first:
 
-1. capture a HAR from before playback starts
-2. identify how the web player obtains the `mag01/wh...` base
-3. implement that derivation in the add-on/proxy
-4. remove the hardcoded forced media base
+1. verify on another Kodi/Linux machine before changing add-on logic again
+2. compare local `inputstream.adaptive` / Widevine CDM versions against the working device class
+3. only resume add-on-side DRM changes if the same stream also fails on another machine with the same cleaned-up proxy path
+
+## DRM note
+
+RTL4 investigation results so far:
+
+- MPD parsing is clean after the current proxy changes
+- `cenc:default_KID` injection is in place for Odido manifests that omit it
+- the local license proxy no longer forwards `Host: 127.0.0.1:11189` upstream for `tmobile`
+- the remaining crash on this laptop is a native `SIGILL` inside `~/.kodi/cdm/libwidevinecdm.so`
+- because playback works on the phone, this is currently best classified as a device/runtime-specific Widevine problem, not a proven Odido integration failure
 
 ## Operational note
 

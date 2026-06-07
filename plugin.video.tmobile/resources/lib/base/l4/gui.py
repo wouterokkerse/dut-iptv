@@ -177,17 +177,19 @@ class Item(object):
     def is_folder(self, value):
         self._is_folder = value
 
-    def get_url_headers(self, only_user_agent=False):
+    def get_url_headers(self, only_user_agent=False, headers=None, cookies=None):
+        headers = self.headers if headers is None else headers
+        cookies = self.cookies if cookies is None else cookies
         string = ''
-        for key in self.headers:
+        for key in headers:
             if only_user_agent == False or key == 'User-Agent':
-                string += u'{0}={1}&'.format(key, quote(u'{}'.format(self.headers[key]).encode('utf8')))
+                string += u'{0}={1}&'.format(key, quote(u'{}'.format(headers[key]).encode('utf8')))
 
-        if self.cookies:
+        if cookies:
             string += 'Cookie='
 
-            for key in self.cookies:
-                string += u'{0}%3D{1}; '.format(key, quote(u'{}'.format(self.cookies[key]).encode('utf8')))
+            for key in cookies:
+                string += u'{0}%3D{1}; '.format(key, quote(u'{}'.format(cookies[key]).encode('utf8')))
 
         return string.strip('&')
 
@@ -204,7 +206,7 @@ class Item(object):
 
         headers = self.get_url_headers()
 
-        if headers and '|' not in self.path:
+        if headers and '|' not in self.path and not (self.inputstream and self.inputstream.addon == 'inputstream.adaptive'):
             self.path = u'{}|{}'.format(self.path, headers)
 
         if self.path:
@@ -275,10 +277,15 @@ class Item(object):
                 if self.inputstream.server_certificate:
                     li.setProperty('inputstream.adaptive.server_certificate', self.inputstream.server_certificate)
 
-                streamheaders = self.get_url_headers(only_user_agent=True)
+                manifestheaders = self.get_url_headers(headers=self.inputstream.manifest_headers or {})
+                streamheaders = self.get_url_headers(headers=self.inputstream.stream_headers or {})
+                licenseheaders = self.get_url_headers(headers=self.inputstream.license_headers or self.headers, cookies=self.cookies)
 
                 if self.inputstream.license_flags:
                     li.setProperty('inputstream.adaptive.license_flags', self.inputstream.license_flags)
+
+                if manifestheaders:
+                    li.setProperty('inputstream.adaptive.manifest_headers', manifestheaders)
 
                 if streamheaders:
                     li.setProperty('inputstream.adaptive.stream_headers', streamheaders)
@@ -286,13 +293,13 @@ class Item(object):
                 if self.inputstream.license_key:
                     li.setProperty('inputstream.adaptive.license_key', '{url}|Content-Type={content_type}&{headers}|{challenge}|{response}'.format(
                         url = self.inputstream.license_key,
-                        headers = headers,
+                        headers = licenseheaders,
                         content_type = self.inputstream.content_type,
                         challenge = self.inputstream.challenge,
                         response = self.inputstream.response,
                     ))
-                elif headers:
-                    li.setProperty('inputstream.adaptive.license_key', '|{0}'.format(headers))
+                elif licenseheaders:
+                    li.setProperty('inputstream.adaptive.license_key', '|{0}'.format(licenseheaders))
             elif self.inputstream.addon == 'inputstream.ffmpeg':
                 li.setProperty('inputstream', 'inputstream.ffmpeg')
             elif self.inputstream.addon == 'inputstream.ffmpegdirect':

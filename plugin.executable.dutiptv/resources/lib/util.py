@@ -136,7 +136,12 @@ def create_playlist():
 
                 try:
                     if replay == 1 and len(replay_id) > 0:
-                        catchup = str('plugin://' + row['replay_addonid'] + '/?_=play_video&type=program&channel=' + row['replay_channelid'] + '&id={catchup-id}')
+                        catchup = str(
+                            'plugin://{addonid}/?_=play_video&type=program&channel={channel}&id={{catchup-id}}&pvr=1&_l=.pvr'.format(
+                                addonid=row['replay_addonid'],
+                                channel=row['replay_channelid'],
+                            )
+                        )
                         playlist += u'#EXTINF:0 tvg-id="{id}" tvg-chno="{channel}" tvg-name="{name}" tvg-logo="{logo}" catchup="default" catchup-source="{catchup}" catchup-days="7" group-title="{group}" radio="false",{name}\n{path}\n'.format(id=str(row['replay_channelid']), channel=ch_no, name=str(row['channelname']), logo=image, catchup=catchup, group=group, path=path)
                     else:
                         playlist += u'#EXTINF:0 tvg-id="{id}" tvg-chno="{channel}" tvg-name="{name}" tvg-logo="{logo}" group-title="{group}" radio="false",{name}\n{path}\n'.format(id=str(row['live_channelid']), channel=ch_no, name=str(row['channelname']), logo=image, group=group, path=path)

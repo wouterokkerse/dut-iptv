@@ -6,6 +6,9 @@ class InputstreamItem(object):
     license_type = ''
     server_certificate = ''
     license_key = ''
+    manifest_headers = None
+    stream_headers = None
+    license_headers = None
     mimetype = ''
     manifest_update_parameter = ''
     license_flags = ''
@@ -61,7 +64,7 @@ class Widevine(InputstreamItem):
     license_type = 'com.widevine.alpha'
     mimetype = 'application/dash+xml'
 
-    def __init__(self, server_certificate=None, license_key=None, license_flags=None, content_type='application/octet-stream', challenge='R{SSM}', response='', manifest_update_parameter=None):
+    def __init__(self, server_certificate=None, license_key=None, license_flags=None, content_type='application/octet-stream', challenge='R{SSM}', response='', manifest_update_parameter=None, manifest_headers=None, stream_headers=None, license_headers=None):
         self.server_certificate = server_certificate
         self.license_key = license_key
         self.license_flags = license_flags
@@ -69,6 +72,9 @@ class Widevine(InputstreamItem):
         self.challenge = challenge
         self.response = response
         self.manifest_update_parameter = manifest_update_parameter
+        self.manifest_headers = manifest_headers
+        self.stream_headers = stream_headers
+        self.license_headers = license_headers
 
     def check(self):
         return install_widevine()

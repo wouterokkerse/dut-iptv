@@ -1,6 +1,7 @@
 import base64, datetime, io, json, pytz, os, re, requests, sys, threading, time, xbmc, xbmcaddon, xbmcvfs, xbmcgui
 import http.server as ProxyServer
 import socketserver
+import uuid
 
 from collections import OrderedDict
 from resources.lib.constants import *
@@ -50,6 +51,19 @@ ALLOWED_LICENSE_HEADERS['ziggo'] = [
     "Content-Length"
 ]
 
+ALLOWED_LICENSE_HEADERS['tmobile'] = [
+    "User-Agent",
+    "Accept",
+    "Accept-Encoding",
+    "Cookie",
+    "AcquireLicense.CustomData",
+    "CADeviceType",
+    "Content-Type",
+    "X_CSRFToken",
+    "Origin",
+    "Referer",
+]
+
 class HTTPMonitor(xbmc.Monitor):
     def __init__(self, addon):
         super(HTTPMonitor, self).__init__()
@@ -64,21 +78,37 @@ class HTTPServer(socketserver.ThreadingMixIn, ProxyServer.HTTPServer):
         self.addon = addon
 
 class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
-    def do_POST(self):
+    def _get_addon_name(self):
         if "/betelenet/" in self.path:
-            addon_name = 'betelenet'
-        elif "/canaldigitaal/" in self.path:
-            addon_name = 'canaldigitaal'
-        elif "/kpn/" in self.path:
-            addon_name = 'kpn'
-        elif "/nlziet/" in self.path:
-            addon_name = 'nlziet'
-        elif "/tmobile/" in self.path:
-            addon_name = 'tmobile'
-        elif "/videoland/" in self.path:
-            addon_name = 'videoland'
-        elif "/ziggo/" in self.path:
-            addon_name = 'ziggo'
+            return 'betelenet'
+        if "/canaldigitaal/" in self.path:
+            return 'canaldigitaal'
+        if "/kpn/" in self.path:
+            return 'kpn'
+        if "/nlziet/" in self.path:
+            return 'nlziet'
+        if "/tmobile/" in self.path:
+            return 'tmobile'
+        if "/videoland/" in self.path:
+            return 'videoland'
+        if "/ziggo/" in self.path:
+            return 'ziggo'
+
+        return None
+
+    def do_POST(self):
+        addon_name = self._get_addon_name()
+
+        if not addon_name:
+            self.send_response(404)
+            self.end_headers()
+
+            try:
+                self.connection.close()
+            except:
+                pass
+
+            return
 
         self.path = self.path.replace('{addon_name}/'.format(addon_name=addon_name), '', 1)
 
@@ -107,9 +137,19 @@ class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
             write_file(file=ADDON_PROFILE + 'license_headers', data=headers, isJSON=True)
             write_file(file=ADDON_PROFILE + 'license_data', data=base64.b64encode(data).decode('utf-8'), isJSON=False)
             
-            #session = proxy_get_session(proxy=self, addon_name=addon_name)
             write_file(file=ADDON_PROFILE + 'license_url', data=str(stream_license[addon_name]), isJSON=False)
-            r = requests.post(stream_license[addon_name], headers=headers, data=data)
+
+            if addon_name == 'tmobile':
+                session = proxy_get_session(proxy=self, addon_name=addon_name)
+                req_headers = dict(session.headers)
+                req_headers.update(headers)
+                req_headers.pop('Host', None)
+                req_headers.pop('Content-Length', None)
+                r = session.post(stream_license[addon_name], headers=req_headers, data=data)
+                write_file(file=ADDON_PROFILE + 'license_upstream_headers', data=dict(r.request.headers), isJSON=True)
+            else:
+                r = requests.post(stream_license[addon_name], headers=headers, data=data)
+
             write_file(file=ADDON_PROFILE + 'license_response_data', data=base64.b64encode(r.content).decode('utf-8'), isJSON=False)
             self.send_response(r.status_code)
 
@@ -145,20 +185,18 @@ class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
             self.send_header('X-TEST', 'OK')
             self.end_headers()
         else:
-            if "/betelenet/" in self.path:
-                addon_name = 'betelenet'
-            elif "/canaldigitaal/" in self.path:
-                addon_name = 'canaldigitaal'
-            elif "/kpn/" in self.path:
-                addon_name = 'kpn'
-            elif "/nlziet/" in self.path:
-                addon_name = 'nlziet'
-            elif "/tmobile/" in self.path:
-                addon_name = 'tmobile'
-            elif "/videoland/" in self.path:
-                addon_name = 'videoland'
-            elif "/ziggo/" in self.path:
-                addon_name = 'ziggo'
+            addon_name = self._get_addon_name()
+
+            if not addon_name:
+                self.send_response(404)
+                self.end_headers()
+
+                try:
+                    self.connection.close()
+                except:
+                    pass
+
+                return
 
             self.path = self.path.replace('{addon_name}/'.format(addon_name=addon_name), '', 1)
 
@@ -224,11 +262,17 @@ class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
                         write_file(file=ADDON_PROFILE + 'stream_base_url', data=stream_base_url[addon_name], isJSON=False)
                     write_file(file=ADDON_PROFILE + 'orig.mpd', data=xml, isJSON=False)
 
-                    xml = sly_mpd_parse(data=xml).decode('utf-8')
+                    preserve_structure = addon_name == 'tmobile' and (
+                        'urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed' in xml or
+                        'urn:uuid:9a04f079-9840-4286-ab92-e65be0885f95' in xml
+                    )
+
+                    xml = sly_mpd_parse(data=xml, preserve_structure=preserve_structure).decode('utf-8')
 
                     write_file(file=ADDON_PROFILE + 'after_sly_mpd_parse.mpd', data=xml, isJSON=False)
 
-                    xml = mpd_parse(data=xml, addon_name=addon_name, URL=URL).decode('utf-8')
+                    if not preserve_structure:
+                        xml = mpd_parse(data=xml, addon_name=addon_name, URL=URL).decode('utf-8')
 
                     write_file(file=ADDON_PROFILE + 'after_mpd_parse.mpd', data=xml, isJSON=False)
 
@@ -474,7 +518,7 @@ def main():
 
     service.shutdownHTTPServer()
 
-def sly_mpd_parse(data):
+def sly_mpd_parse(data, preserve_structure=False):
     data = data.replace('_xmlns:cenc', 'xmlns:cenc')
     data = data.replace('_:default_KID', 'cenc:default_KID')
     data = data.replace('<pssh', '<cenc:pssh')
@@ -496,98 +540,151 @@ def sly_mpd_parse(data):
             mpd.setAttribute('publishTime', value)
             break
 
-    base_url_nodes = []
+    if not preserve_structure:
+        base_url_nodes = []
 
-    for node in mpd.childNodes:
-        if node.nodeType == node.ELEMENT_NODE:
-            if node.localName == 'BaseURL':
-                base_url_nodes.append(node)
+        for node in mpd.childNodes:
+            if node.nodeType == node.ELEMENT_NODE:
+                if node.localName == 'BaseURL':
+                    base_url_nodes.append(node)
 
-    if base_url_nodes:
-        base_url_nodes.pop(0)
+        if base_url_nodes:
+            base_url_nodes.pop(0)
 
-        for e in base_url_nodes:
-            e.parentNode.removeChild(e)
-
-    if 'type' in mpd.attributes.keys() and mpd.getAttribute('type').lower() == 'dynamic':
-        periods = [elem for elem in root.getElementsByTagName('Period')]
-
-        if len(periods) > 1:
-            periods.pop()
-            for e in periods:
+            for e in base_url_nodes:
                 e.parentNode.removeChild(e)
+
+        if 'type' in mpd.attributes.keys() and mpd.getAttribute('type').lower() == 'dynamic':
+            periods = [elem for elem in root.getElementsByTagName('Period')]
+
+            if len(periods) > 1:
+                periods.pop()
+                for e in periods:
+                    e.parentNode.removeChild(e)
 
     for elem in root.getElementsByTagName('AudioChannelConfiguration'):
         if elem.getAttribute('schemeIdUri') == 'tag:dolby.com,2014:dash:audio_channel_configuration:2011':
             elem.setAttribute('schemeIdUri', 'urn:dolby:dash:audio_channel_configuration:2011')
 
-    for elem in root.getElementsByTagName('Representation'):
-        parent = elem.parentNode
-        parent.removeChild(elem)
-        parent.appendChild(elem)
-
-    video_sets = []
-    other_sets = []
-    trick_sets = []
+    if not preserve_structure:
+        for elem in root.getElementsByTagName('Representation'):
+            parent = elem.parentNode
+            parent.removeChild(elem)
+            parent.appendChild(elem)
 
     for adap_set in root.getElementsByTagName('AdaptationSet'):
-        highest_bandwidth = 0
-        is_video = False
-        is_trick = False
+        content_protections = adap_set.getElementsByTagName('ContentProtection')
+        has_default_kid = False
+        default_kid = None
 
-        adapt_frame_rate = adap_set.getAttribute('frameRate')
-        if adapt_frame_rate and '/' not in adapt_frame_rate:
-            adapt_frame_rate = None
+        for cp in content_protections:
+            if cp.getAttribute('cenc:default_KID') or cp.getAttribute('default_KID'):
+                has_default_kid = True
+                break
 
-        if adapt_frame_rate:
-            adap_set.removeAttribute('frameRate')
+        if has_default_kid:
+            continue
 
-        if 'video' in adap_set.getAttribute('mimeType'):
-            is_video = True
+        for cp in content_protections:
+            for pro in cp.getElementsByTagName('mspr:pro'):
+                try:
+                    pro_xml = base64.b64decode(''.join(
+                        node.data for node in pro.childNodes if node.nodeType == node.TEXT_NODE
+                    )).decode('utf-16-le', errors='ignore')
+                    match = re.search(r'<KID>([^<]+)</KID>', pro_xml)
 
-        for stream in adap_set.getElementsByTagName("Representation"):
-            attrib = {}
+                    if not match:
+                        continue
 
-            for key in adap_set.attributes.keys():
-                attrib[key] = adap_set.getAttribute(key)
+                    kid_bytes = bytearray(base64.b64decode(match.group(1)))
+                    kid_be = bytes(kid_bytes[3::-1] + kid_bytes[5:3:-1] + kid_bytes[7:5:-1] + kid_bytes[8:16])
+                    default_kid = str(uuid.UUID(bytes=kid_be))
+                    break
+                except:
+                    pass
 
-            for key in stream.attributes.keys():
-                attrib[key] = stream.getAttribute(key)
+            if default_kid:
+                break
 
-            if adapt_frame_rate and not stream.getAttribute('frameRate'):
-                stream.setAttribute('frameRate', adapt_frame_rate)
+        if not default_kid:
+            continue
 
-            if 'bandwidth' in attrib:
-                bandwidth = int(attrib['bandwidth'])
-                if bandwidth > highest_bandwidth:
-                    highest_bandwidth = bandwidth
+        mp4prot = None
 
-            if 'maxPlayoutRate' in attrib:
-                is_video = False
-                is_trick = True
+        for cp in content_protections:
+            if cp.getAttribute('schemeIdUri') == 'urn:mpeg:dash:mp4protection:2011':
+                mp4prot = cp
+                break
 
-        parent = adap_set.parentNode
-        parent.removeChild(adap_set)
+        if mp4prot is None and content_protections:
+            mp4prot = content_protections[0]
 
-        if is_trick:
-            trick_sets.append([highest_bandwidth, adap_set, parent])
-        elif is_video:
-            video_sets.append([highest_bandwidth, adap_set, parent])
-        else:
-            other_sets.append([highest_bandwidth, adap_set, parent])
+        if mp4prot is not None:
+            mp4prot.setAttribute('cenc:default_KID', default_kid)
 
-    video_sets.sort(key=lambda  x: x[0], reverse=True)
-    trick_sets.sort(key=lambda  x: x[0], reverse=True)
-    other_sets.sort(key=lambda  x: x[0], reverse=True)
+    if not preserve_structure:
+        video_sets = []
+        other_sets = []
+        trick_sets = []
 
-    for elem in video_sets:
-        elem[2].appendChild(elem[1])
+        for adap_set in root.getElementsByTagName('AdaptationSet'):
+            highest_bandwidth = 0
+            is_video = False
+            is_trick = False
 
-    for elem in trick_sets:
-        elem[2].appendChild(elem[1])
+            adapt_frame_rate = adap_set.getAttribute('frameRate')
+            if adapt_frame_rate and '/' not in adapt_frame_rate:
+                adapt_frame_rate = None
 
-    for elem in other_sets:
-        elem[2].appendChild(elem[1])
+            if adapt_frame_rate:
+                adap_set.removeAttribute('frameRate')
+
+            if 'video' in adap_set.getAttribute('mimeType'):
+                is_video = True
+
+            for stream in adap_set.getElementsByTagName("Representation"):
+                attrib = {}
+
+                for key in adap_set.attributes.keys():
+                    attrib[key] = adap_set.getAttribute(key)
+
+                for key in stream.attributes.keys():
+                    attrib[key] = stream.getAttribute(key)
+
+                if adapt_frame_rate and not stream.getAttribute('frameRate'):
+                    stream.setAttribute('frameRate', adapt_frame_rate)
+
+                if 'bandwidth' in attrib:
+                    bandwidth = int(attrib['bandwidth'])
+                    if bandwidth > highest_bandwidth:
+                        highest_bandwidth = bandwidth
+
+                if 'maxPlayoutRate' in attrib:
+                    is_video = False
+                    is_trick = True
+
+            parent = adap_set.parentNode
+            parent.removeChild(adap_set)
+
+            if is_trick:
+                trick_sets.append([highest_bandwidth, adap_set, parent])
+            elif is_video:
+                video_sets.append([highest_bandwidth, adap_set, parent])
+            else:
+                other_sets.append([highest_bandwidth, adap_set, parent])
+
+        video_sets.sort(key=lambda  x: x[0], reverse=True)
+        trick_sets.sort(key=lambda  x: x[0], reverse=True)
+        other_sets.sort(key=lambda  x: x[0], reverse=True)
+
+        for elem in video_sets:
+            elem[2].appendChild(elem[1])
+
+        for elem in trick_sets:
+            elem[2].appendChild(elem[1])
+
+        for elem in other_sets:
+            elem[2].appendChild(elem[1])
 
     elems = root.getElementsByTagName('SegmentTemplate')
     elems.extend(root.getElementsByTagName('SegmentURL'))
