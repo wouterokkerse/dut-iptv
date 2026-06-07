@@ -823,3 +823,11 @@ msgstr "UpNext instellen"
 msgctxt "#330091"
 msgid "Enable UpNext integration"
 msgstr "UpNext integratie inschakelen"
+
+msgctxt "#330092"
+msgid "Generate playlist.m3u8"
+msgstr "playlist.m3u8 genereren"
+
+msgctxt "#330093"
+msgid "Generate epg.xml"
+msgstr "epg.xml genereren"

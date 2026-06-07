@@ -221,6 +221,8 @@ class BaseLanguage(object):
     ADD_TO_CONTINUE = 330089
     SETUP_UPNEXT = 330090
     ENABLE_UPNEXT = 330091
+    CREATE_PLAYLIST = 330092
+    CREATE_EPG = 330093
         
     def __getattribute__(self, name):
         attr = object.__getattribute__(self, name)

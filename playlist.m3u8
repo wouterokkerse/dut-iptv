@@ -1,0 +1,409 @@
+#EXTM3U
+#EXTINF:0 tvg-id="141430714" tvg-chno="1" tvg-name="NPO 1" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155426831zyo.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430714&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",NPO 1
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430714&id=141430715&_is_live=True
+#EXTINF:0 tvg-id="147053128" tvg-chno="2" tvg-name="NPO 2" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190619/201906191004386431tc.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=147053128&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",NPO 2
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=147053128&id=147053129&_is_live=True
+#EXTINF:0 tvg-id="141430597" tvg-chno="3" tvg-name="NPO 3" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155436628p9y.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430597&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",NPO 3
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430597&id=141430598&_is_live=True
+#EXTINF:0 tvg-id="155053485" tvg-chno="4" tvg-name="RTL 4" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190626/20190626142214904sb0.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=155053485&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",RTL 4
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=155053485&id=155053486&_is_live=True
+#EXTINF:0 tvg-id="149441994" tvg-chno="5" tvg-name="RTL 5" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190622/201906221010492670yb.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=149441994&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",RTL 5
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=149441994&id=149442003&_is_live=True
+#EXTINF:0 tvg-id="141430106" tvg-chno="6" tvg-name="SBS 6" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/201906141554188863t5.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430106&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",SBS 6
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430106&id=141430107&_is_live=True
+#EXTINF:0 tvg-id="141430922" tvg-chno="7" tvg-name="RTL 7" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155501724mxu.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430922&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",RTL 7
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430922&id=141430923&_is_live=True
+#EXTINF:0 tvg-id="141430837" tvg-chno="8" tvg-name="Veronica  Disney XD" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/2019061415545461331g.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430837&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Veronica  Disney XD
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430837&id=141430839&_is_live=True
+#EXTINF:0 tvg-id="141431367" tvg-chno="9" tvg-name="NET 5" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201910/20191002/201910021431097379m8.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141431367&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",NET 5
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141431367&id=141431368&_is_live=True
+#EXTINF:0 tvg-id="141430473" tvg-chno="10" tvg-name="RTL 8" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201908/20190821/20190821141832826bdb.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430473&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",RTL 8
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430473&id=186566279&_is_live=True
+#EXTINF:0 tvg-id="141430236" tvg-chno="11" tvg-name="RTL Z" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/201906141555037627eq.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430236&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",RTL Z
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430236&id=141430237&_is_live=True
+#EXTINF:0 tvg-id="150504894" tvg-chno="12" tvg-name="SBS 9" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190622/201906221101031790sw.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=150504894&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",SBS 9
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=150504894&id=150504903&_is_live=True
+#EXTINF:0 tvg-id="141430439" tvg-chno="14" tvg-name="Comedy Central" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155507636nxy.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430439&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Comedy Central
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430439&id=141430440&_is_live=True
+#EXTINF:0 tvg-id="141429374" tvg-chno="15" tvg-name="MTV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155500659emy.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141429374&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",MTV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429374&id=141429375&_is_live=True
+#EXTINF:0 tvg-id="150544190" tvg-chno="16" tvg-name="FOX" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190622/201906221059280655fi.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=150544190&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",FOX
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=150544190&id=150545479&_is_live=True
+#EXTINF:0 tvg-id="141429297" tvg-chno="17" tvg-name="TLC" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202207/20220705/13/20220705064035648ggp.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141429297&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",TLC
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429297&id=141429298&_is_live=True
+#EXTINF:0 tvg-id="184216056" tvg-chno="18" tvg-name="Zender van de Maand" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202212/20221206/55/20221206120204811dqv.png" group-title="TV" radio="false",Zender van de Maand
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=184216056&id=184216057&_is_live=True
+#EXTINF:0 tvg-id="141429532" tvg-chno="19" tvg-name="Paramount Network" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202205/20220524/91/202205240814049060u0.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141429532&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Paramount Network
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429532&id=186568596&_is_live=True
+#EXTINF:0 tvg-id="141430463" tvg-chno="20" tvg-name="Nickelodeon" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155420629qbt.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430463&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Nickelodeon
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430463&id=141430464&_is_live=True
+#EXTINF:0 tvg-id="141429669" tvg-chno="21" tvg-name="Één" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201909/20190913/20190913070639399g78.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141429669&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Één
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429669&id=141429670&_is_live=True
+#EXTINF:0 tvg-id="141431638" tvg-chno="22" tvg-name="Canvas" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201907/20190731/20190731083837231dk8.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141431638&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Canvas
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141431638&id=186568608&_is_live=True
+#EXTINF:0 tvg-id="203002308" tvg-chno="23" tvg-name="Ketnet" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201908/20190807/20190807132815418zq7.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=203002308&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Ketnet
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=203002308&id=203002323&_is_live=True
+#EXTINF:0 tvg-id="141429712" tvg-chno="24" tvg-name="24Kitchen" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201907/20190731/20190731085917699d6h.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141429712&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",24Kitchen
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429712&id=186566312&_is_live=True
+#EXTINF:0 tvg-id="141430970" tvg-chno="25" tvg-name="Disney Channel" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202208/20220824/76/20220824124104857j8h.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430970&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Disney Channel
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430970&id=141430971&_is_live=True
+#EXTINF:0 tvg-id="141430551" tvg-chno="29" tvg-name="XITE" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/201906141552316394bl.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430551&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",XITE
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430551&id=141430552&_is_live=True
+#EXTINF:0 tvg-id="141429883" tvg-chno="51" tvg-name="National Geographic" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155437651xfy.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141429883&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",National Geographic
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429883&id=141429884&_is_live=True
+#EXTINF:0 tvg-id="141429409" tvg-chno="61" tvg-name="Discovery" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201909/20190923/20190923120854370bhs.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141429409&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Discovery
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429409&id=141429410&_is_live=True
+#EXTINF:0 tvg-id="141426349" tvg-chno="65" tvg-name="ID" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202011/20201118/84/2020111809152386205z.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141426349&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",ID
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141426349&id=141426350&_is_live=True
+#EXTINF:0 tvg-id="141429026" tvg-chno="72" tvg-name="Animal Planet" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155458628wxc.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141429026&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Animal Planet
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429026&id=141429027&_is_live=True
+#EXTINF:0 tvg-id="141430738" tvg-chno="77" tvg-name="Nat Geo Wild" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201908/20190823/201908231045227056wy.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430738&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Nat Geo Wild
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430738&id=141430739&_is_live=True
+#EXTINF:0 tvg-id="141430036" tvg-chno="81" tvg-name="NPO 1 Extra" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155502755fk7.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430036&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",NPO 1 Extra
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430036&id=141430038&_is_live=True
+#EXTINF:0 tvg-id="141430280" tvg-chno="82" tvg-name="NPO 2 Extra" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155501642qzx.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430280&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",NPO 2 Extra
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430280&id=141430281&_is_live=True
+#EXTINF:0 tvg-id="141430304" tvg-chno="83" tvg-name="NPO Politiek en Nieuws" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202112/20211215/35/20211215095223424lr8.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430304&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",NPO Politiek en Nieuws
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430304&id=141430306&_is_live=True
+#EXTINF:0 tvg-id="141430874" tvg-chno="91" tvg-name="History Channel" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202004/20200403/20200403120336237460.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430874&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",History Channel
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430874&id=141430875&_is_live=True
+#EXTINF:0 tvg-id="141429385" tvg-chno="110" tvg-name="BBC First" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155454641w8n.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141429385&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",BBC First
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429385&id=141429386&_is_live=True
+#EXTINF:0 tvg-id="141431706" tvg-chno="111" tvg-name="BBC One" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155307603wl8.png" group-title="TV" radio="false",BBC One
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141431706&id=141431707&_is_live=True
+#EXTINF:0 tvg-id="141429351" tvg-chno="112" tvg-name="BBC Two" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155322616ki5.png" group-title="TV" radio="false",BBC Two
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429351&id=141429352&_is_live=True
+#EXTINF:0 tvg-id="141428593" tvg-chno="131" tvg-name="Eurosport" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155345680t7q.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141428593&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Eurosport
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141428593&id=141428594&_is_live=True
+#EXTINF:0 tvg-id="141429798" tvg-chno="150" tvg-name="ESPN" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202012/20201230/24/20201230083418013jkl.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141429798&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",ESPN
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429798&id=141429801&_is_live=True
+#EXTINF:0 tvg-id="141430835" tvg-chno="190" tvg-name="Cartoon Network" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201909/20190903/20190903170442699bbi.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430835&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Cartoon Network
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430835&id=186574259&_is_live=True
+#EXTINF:0 tvg-id="141431033" tvg-chno="241" tvg-name="CNN" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155507628et9.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141431033&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",CNN
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141431033&id=141431034&_is_live=True
+#EXTINF:0 tvg-id="141430145" tvg-chno="242" tvg-name="BBC World News" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155335630i2e.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141430145&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",BBC World News
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430145&id=141430146&_is_live=True
+#EXTINF:0 tvg-id="141429484" tvg-chno="278" tvg-name="Fashion TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155459768g3h.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141429484&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Fashion TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429484&id=141429485&_is_live=True
+#EXTINF:0 tvg-id="141431101" tvg-chno="296" tvg-name="MyZEN TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155427654etc.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141431101&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",MyZEN TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141431101&id=141431102&_is_live=True
+#EXTINF:0 tvg-id="141431343" tvg-chno="372" tvg-name="Stingray Classica HD" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201911/20191114/20191114090213913f5g.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141431343&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Stingray Classica HD
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141431343&id=141431344&_is_live=True
+#EXTINF:0 tvg-id="141431121" tvg-chno="421" tvg-name="TV5Monde Europe HD" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202112/20211206/5/202112061653567099ra.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141431121&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",TV5Monde Europe HD
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141431121&id=141431122&_is_live=True
+#EXTINF:0 tvg-id="141428573" tvg-chno="501" tvg-name="NH" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202211/20221128/60/2022112808075986131w.png" group-title="TV" radio="false",NH
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141428573&id=141428574&_is_live=True
+#EXTINF:0 tvg-id="141429114" tvg-chno="502" tvg-name="AT5" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155436643x85.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141429114&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",AT5
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429114&id=141429115&_is_live=True
+#EXTINF:0 tvg-id="141430645" tvg-chno="503" tvg-name="TV West" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155206643oc6.png" group-title="TV" radio="false",TV West
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430645&id=141430646&_is_live=True
+#EXTINF:0 tvg-id="141429863" tvg-chno="504" tvg-name="Omrop Fryslan" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155219614ewx.png" group-title="TV" radio="false",Omrop Fryslan
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429863&id=141429864&_is_live=True
+#EXTINF:0 tvg-id="141429628" tvg-chno="505" tvg-name="TV Noord" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/201906141551506152gm.png" group-title="TV" radio="false",TV Noord
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429628&id=141429629&_is_live=True
+#EXTINF:0 tvg-id="141428679" tvg-chno="506" tvg-name="RTV Drenthe" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202201/20220125/75/20220125111738369bw3.png" group-title="TV" radio="false",RTV Drenthe
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141428679&id=141428680&_is_live=True
+#EXTINF:0 tvg-id="141429758" tvg-chno="507" tvg-name="TV Oost" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155224619pty.png" group-title="TV" radio="false",TV Oost
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429758&id=141429759&_is_live=True
+#EXTINF:0 tvg-id="141428745" tvg-chno="508" tvg-name="Omroep Flevoland TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155159629ksq.png" group-title="TV" radio="false",Omroep Flevoland TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141428745&id=141428746&_is_live=True
+#EXTINF:0 tvg-id="141428403" tvg-chno="509" tvg-name="Regio TV Utrecht" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155235635cxy.png" group-title="TV" radio="false",Regio TV Utrecht
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141428403&id=141428405&_is_live=True
+#EXTINF:0 tvg-id="153905661" tvg-chno="510" tvg-name="TV Gelderland" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190625/201906251442091479j1.png" group-title="TV" radio="false",TV Gelderland
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=153905661&id=153905662&_is_live=True
+#EXTINF:0 tvg-id="141429975" tvg-chno="511" tvg-name="TV Rijnmond" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201908/20190829/20190829075437064ggg.png" group-title="TV" radio="false",TV Rijnmond
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429975&id=141429976&_is_live=True
+#EXTINF:0 tvg-id="141430259" tvg-chno="512" tvg-name="Omroep Zeeland" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/20190614155148609pjy.png" group-title="TV" radio="false",Omroep Zeeland
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430259&id=141430261&_is_live=True
+#EXTINF:0 tvg-id="141430815" tvg-chno="513" tvg-name="Omroep Brabant" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/201906141552126514r7.png" group-title="TV" radio="false",Omroep Brabant
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141430815&id=141430816&_is_live=True
+#EXTINF:0 tvg-id="141429331" tvg-chno="514" tvg-name="L1 TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/201906141552386567lv.png" group-title="TV" radio="false",L1 TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141429331&id=141429332&_is_live=True
+#EXTINF:0 tvg-id="1282999666" tvg-chno="515" tvg-name="RTV-7" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202210/20221013/10/20221013101431897073.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1282999666&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",RTV-7
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1282999666&id=1282999667&_is_live=True
+#EXTINF:0 tvg-id="141431057" tvg-chno="538" tvg-name="TV538" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201906/20190614/201906141555076537mi.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141431057&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",TV538
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141431057&id=141431058&_is_live=True
+#EXTINF:0 tvg-id="141521930" tvg-chno="700" tvg-name="SIRIS TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624091853640fav.png" group-title="TV" radio="false",SIRIS TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141521930&id=141521931&_is_live=True
+#EXTINF:0 tvg-id="141432870" tvg-chno="701" tvg-name="KempenTV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624092003560djy.png" group-title="TV" radio="false",KempenTV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141432870&id=141432872&_is_live=True
+#EXTINF:0 tvg-id="141433772" tvg-chno="702" tvg-name="RN7" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212114422951qd7.png" group-title="TV" radio="false",RN7
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433772&id=141433773&_is_live=True
+#EXTINF:0 tvg-id="141522043" tvg-chno="703" tvg-name="LINQ TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200629/202006290925386498bk.png" group-title="TV" radio="false",LINQ TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522043&id=141522044&_is_live=True
+#EXTINF:0 tvg-id="141433032" tvg-chno="704" tvg-name="ZO-NWS" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202201/20220124/91/202201241339533238sd.png" group-title="TV" radio="false",ZO-NWS
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433032&id=141433033&_is_live=True
+#EXTINF:0 tvg-id="141522370" tvg-chno="708" tvg-name="SCHIE TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624092204857jpb.png" group-title="TV" radio="false",SCHIE TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522370&id=141522372&_is_live=True
+#EXTINF:0 tvg-id="141433488" tvg-chno="709" tvg-name="WOS TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624092233614qhm.png" group-title="TV" radio="false",WOS TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433488&id=141433489&_is_live=True
+#EXTINF:0 tvg-id="141434288" tvg-chno="710" tvg-name="Meer TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624092309610flv.png" group-title="TV" radio="false",Meer TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434288&id=141434289&_is_live=True
+#EXTINF:0 tvg-id="141434108" tvg-chno="711" tvg-name="ORTS" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624092349601kty.png" group-title="TV" radio="false",ORTS
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434108&id=141434109&_is_live=True
+#EXTINF:0 tvg-id="155053812" tvg-chno="712" tvg-name="Omroep Meierij TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/202006240924395692m1.png" group-title="TV" radio="false",Omroep Meierij TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=155053812&id=155053813&_is_live=True
+#EXTINF:0 tvg-id="141434088" tvg-chno="713" tvg-name="Studio040 TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/202006240925235833gn.png" group-title="TV" radio="false",Studio040 TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434088&id=141434089&_is_live=True
+#EXTINF:0 tvg-id="628207569" tvg-chno="714" tvg-name="Lelystad TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202009/20200914/89/20200914150816365ahd.png" group-title="TV" radio="false",Lelystad TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=628207569&id=628207570&_is_live=True
+#EXTINF:0 tvg-id="141434209" tvg-chno="715" tvg-name="Open Rotterdam" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624092604718s2z.png" group-title="TV" radio="false",Open Rotterdam
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434209&id=141434211&_is_live=True
+#EXTINF:0 tvg-id="141522495" tvg-chno="716" tvg-name="BredaNu" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/201912121120428292qn.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141522495&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",BredaNu
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522495&id=141522496&_is_live=True
+#EXTINF:0 tvg-id="141432968" tvg-chno="717" tvg-name="DTV-OSS" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624092644595xhr.png" group-title="TV" radio="false",DTV-OSS
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141432968&id=141432969&_is_live=True
+#EXTINF:0 tvg-id="857998409" tvg-chno="718" tvg-name="Langstraat TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202103/20210325/85/20210325143643362kga.png" group-title="TV" radio="false",Langstraat TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=857998409&id=857998410&_is_live=True
+#EXTINF:0 tvg-id="141522178" tvg-chno="719" tvg-name="HAARLEM105-tv" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/202006240927085435zz.png" group-title="TV" radio="false",HAARLEM105-tv
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522178&id=141522179&_is_live=True
+#EXTINF:0 tvg-id="141522003" tvg-chno="720" tvg-name="RTV Dordrecht" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624092749631o0r.jpg" group-title="TV" radio="false",RTV Dordrecht
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522003&id=141522004&_is_live=True
+#EXTINF:0 tvg-id="141433034" tvg-chno="722" tvg-name="RTV Lansingerland Berkel en Rodenrijs" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624092903553syz.png" group-title="TV" radio="false",RTV Lansingerland Berkel en Rodenrijs
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433034&id=141433035&_is_live=True
+#EXTINF:0 tvg-id="204029123" tvg-chno="723" tvg-name="1Twente" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624092933535ga3.png" group-title="TV" radio="false",1Twente
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=204029123&id=204029132&_is_live=True
+#EXTINF:0 tvg-id="141522271" tvg-chno="724" tvg-name="RTV Connect" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202111/20211122/52/20211122083626468xtw.png" group-title="TV" radio="false",RTV Connect
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522271&id=141522272&_is_live=True
+#EXTINF:0 tvg-id="1166350355" tvg-chno="726" tvg-name="RTV Elburg" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202203/20220322/77/20220322151551771dd9.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1166350355&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",RTV Elburg
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1166350355&id=1166350356&_is_live=True
+#EXTINF:0 tvg-id="141521959" tvg-chno="727" tvg-name="RTVSlingeland" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624093043656dm0.png" group-title="TV" radio="false",RTVSlingeland
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141521959&id=141521962&_is_live=True
+#EXTINF:0 tvg-id="141432928" tvg-chno="728" tvg-name="A1 Regio TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/202006240931098379qf.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141432928&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",A1 Regio TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141432928&id=141432929&_is_live=True
+#EXTINF:0 tvg-id="141433875" tvg-chno="729" tvg-name="Salto 1 (Amsterdam)" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624093159713ymx.png" group-title="TV" radio="false",Salto 1 (Amsterdam)
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433875&id=141433879&_is_live=True
+#EXTINF:0 tvg-id="649012650" tvg-chno="730" tvg-name="SOL2" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202009/20200929/28/20200929163845699ykv.png" group-title="TV" radio="false",SOL2
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=649012650&id=649012651&_is_live=True
+#EXTINF:0 tvg-id="141433276" tvg-chno="731" tvg-name="TV Maastricht" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624093248590hoz.png" group-title="TV" radio="false",TV Maastricht
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433276&id=141433277&_is_live=True
+#EXTINF:0 tvg-id="141433070" tvg-chno="732" tvg-name="TV Hoeksche Waard" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624093319598dlu.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141433070&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",TV Hoeksche Waard
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433070&id=141433072&_is_live=True
+#EXTINF:0 tvg-id="141433836" tvg-chno="733" tvg-name="VOSTV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624093348661reh.png" group-title="TV" radio="false",VOSTV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433836&id=141433837&_is_live=True
+#EXTINF:0 tvg-id="141433114" tvg-chno="734" tvg-name="Bo" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212111858002vva.png" group-title="TV" radio="false",Bo
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433114&id=141433115&_is_live=True
+#EXTINF:0 tvg-id="141434557" tvg-chno="736" tvg-name="RTV Baarn" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624093454649e6x.png" group-title="TV" radio="false",RTV Baarn
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434557&id=141434559&_is_live=True
+#EXTINF:0 tvg-id="141522147" tvg-chno="737" tvg-name="ZFMInfobox" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/2020062409354461219r.png" group-title="TV" radio="false",ZFMInfobox
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522147&id=141522148&_is_live=True
+#EXTINF:0 tvg-id="141433316" tvg-chno="738" tvg-name="Studio Alphen TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212121337793hfo.png" group-title="TV" radio="false",Studio Alphen TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433316&id=141433317&_is_live=True
+#EXTINF:0 tvg-id="649013094" tvg-chno="739" tvg-name="Regio TV de Bilt" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202009/20200929/34/202009291645167169ta.png" group-title="TV" radio="false",Regio TV de Bilt
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=649013094&id=649013095&_is_live=True
+#EXTINF:0 tvg-id="155053827" tvg-chno="740" tvg-name="Merwe TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624093613501jk3.png" group-title="TV" radio="false",Merwe TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=155053827&id=155053828&_is_live=True
+#EXTINF:0 tvg-id="141522362" tvg-chno="741" tvg-name="Omroep Berg en Dal" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624093649610mln.png" group-title="TV" radio="false",Omroep Berg en Dal
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522362&id=141522363&_is_live=True
+#EXTINF:0 tvg-id="141522322" tvg-chno="742" tvg-name="Feel Good TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/2020062409372459825r.png" group-title="TV" radio="false",Feel Good TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522322&id=141522323&_is_live=True
+#EXTINF:0 tvg-id="141434332" tvg-chno="743" tvg-name="EVA" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624093753755mtr.png" group-title="TV" radio="false",EVA
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434332&id=141434333&_is_live=True
+#EXTINF:0 tvg-id="141432907" tvg-chno="744" tvg-name="Ideaal TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624093828671pe1.png" group-title="TV" radio="false",Ideaal TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141432907&id=141432909&_is_live=True
+#EXTINF:0 tvg-id="649012659" tvg-chno="745" tvg-name="Omroep Hulst TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202009/20200929/42/20200929165110763ye8.png" group-title="TV" radio="false",Omroep Hulst TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=649012659&id=649012660&_is_live=True
+#EXTINF:0 tvg-id="141434392" tvg-chno="746" tvg-name="HalloGilzeRijen" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212114857946sp4.png" group-title="TV" radio="false",HalloGilzeRijen
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434392&id=141434393&_is_live=True
+#EXTINF:0 tvg-id="1154012375" tvg-chno="747" tvg-name="Eemland 1" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202301/20230104/80/20230104075059805ky4.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1154012375&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Eemland 1
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1154012375&id=1154012376&_is_live=True
+#EXTINF:0 tvg-id="141522054" tvg-chno="748" tvg-name="TV 350" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212114332798cor.png" group-title="TV" radio="false",TV 350
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522054&id=141522055&_is_live=True
+#EXTINF:0 tvg-id="141433001" tvg-chno="750" tvg-name="TV Hattem" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212115017782psy.png" group-title="TV" radio="false",TV Hattem
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433001&id=141433003&_is_live=True
+#EXTINF:0 tvg-id="141432932" tvg-chno="751" tvg-name="Omroep PeelRand" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202207/20220721/90/20220721114419858wr4.png" group-title="TV" radio="false",Omroep PeelRand
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141432932&id=141432934&_is_live=True
+#EXTINF:0 tvg-id="141433460" tvg-chno="753" tvg-name="TV Nunspeet" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624094003700vf6.png" group-title="TV" radio="false",TV Nunspeet
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433460&id=141433461&_is_live=True
+#EXTINF:0 tvg-id="824100059" tvg-chno="754" tvg-name="Omroep Horst aan de Maas" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202102/20210224/83/20210224133548720omk.jpg" group-title="TV" radio="false",Omroep Horst aan de Maas
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=824100059&id=824100060&_is_live=True
+#EXTINF:0 tvg-id="141433628" tvg-chno="755" tvg-name="BR6" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202007/20200716/20200716120214372n2a.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141433628&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",BR6
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433628&id=141433629&_is_live=True
+#EXTINF:0 tvg-id="141432868" tvg-chno="756" tvg-name="SLOG TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624094129636wuc.jpg" group-title="TV" radio="false",SLOG TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141432868&id=141432869&_is_live=True
+#EXTINF:0 tvg-id="242923055" tvg-chno="757" tvg-name="SRC TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200629/20200629092604601gqf.jpg" group-title="TV" radio="false",SRC TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=242923055&id=242923056&_is_live=True
+#EXTINF:0 tvg-id="657214292" tvg-chno="758" tvg-name="1Almere TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202111/20211126/0/20211126071711686zi6.png" group-title="TV" radio="false",1Almere TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=657214292&id=657214293&_is_live=True
+#EXTINF:0 tvg-id="141433152" tvg-chno="759" tvg-name="RTV Katwijk" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624094203555lh2.png" group-title="TV" radio="false",RTV Katwijk
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433152&id=141433217&_is_live=True
+#EXTINF:0 tvg-id="141434352" tvg-chno="760" tvg-name="Omroep ML5" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200629/20200629092633561ba5.png" group-title="TV" radio="false",Omroep ML5
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434352&id=141434353&_is_live=True
+#EXTINF:0 tvg-id="141433420" tvg-chno="762" tvg-name="BEATTV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624094234617djc.png" group-title="TV" radio="false",BEATTV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433420&id=141433421&_is_live=True
+#EXTINF:0 tvg-id="141522094" tvg-chno="763" tvg-name="Salland1" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202106/20210611/86/202106111210104079uu.png" group-title="TV" radio="false",Salland1
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522094&id=141522095&_is_live=True
+#EXTINF:0 tvg-id="1288853475" tvg-chno="764" tvg-name="WeertFM TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202210/20221027/32/20221027112316452v63.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1288853475&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",WeertFM TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1288853475&id=1288853476&_is_live=True
+#EXTINF:0 tvg-id="141434124" tvg-chno="765" tvg-name="Omroep Sudwest" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/202006240943135879wj.png" group-title="TV" radio="false",Omroep Sudwest
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434124&id=141434126&_is_live=True
+#EXTINF:0 tvg-id="1247083943" tvg-chno="766" tvg-name="Regio FM TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202207/20220721/43/202207211428547919b9.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1247083943&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Regio FM TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1247083943&id=1247083944&_is_live=True
+#EXTINF:0 tvg-id="141522415" tvg-chno="767" tvg-name="RTV Ridderkerk" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212115957997m46.png" group-title="TV" radio="false",RTV Ridderkerk
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522415&id=141522416&_is_live=True
+#EXTINF:0 tvg-id="141522186" tvg-chno="768" tvg-name="Omroep Helmond TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202011/20201109/0/20201109094748815c6e.png" group-title="TV" radio="false",Omroep Helmond TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522186&id=141522189&_is_live=True
+#EXTINF:0 tvg-id="141433092" tvg-chno="769" tvg-name="Regio8" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624094509600jok.png" group-title="TV" radio="false",Regio8
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433092&id=141433093&_is_live=True
+#EXTINF:0 tvg-id="141521932" tvg-chno="770" tvg-name="RTV527" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202201/20220124/39/2022012413301189930p.png" group-title="TV" radio="false",RTV527
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141521932&id=141521934&_is_live=True
+#EXTINF:0 tvg-id="141434556" tvg-chno="772" tvg-name="Samen1 TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202203/20220309/44/20220309130819848vsy.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141434556&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Samen1 TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434556&id=141434558&_is_live=True
+#EXTINF:0 tvg-id="141434580" tvg-chno="773" tvg-name="EENTV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202207/20220712/7/20220712082425638lef.jpg" group-title="TV" radio="false",EENTV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434580&id=141434581&_is_live=True
+#EXTINF:0 tvg-id="141434412" tvg-chno="776" tvg-name="Vechtdal Leeft TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624094624658rf4.png" group-title="TV" radio="false",Vechtdal Leeft TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434412&id=141434413&_is_live=True
+#EXTINF:0 tvg-id="141433712" tvg-chno="777" tvg-name="OOGTV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/2019121211404278915s.png" group-title="TV" radio="false",OOGTV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433712&id=141433713&_is_live=True
+#EXTINF:0 tvg-id="141522457" tvg-chno="778" tvg-name="Salto 2" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624094653549hkb.png" group-title="TV" radio="false",Salto 2
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522457&id=141522458&_is_live=True
+#EXTINF:0 tvg-id="141434620" tvg-chno="779" tvg-name="RTV IJsselmond" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624094733564xxq.png" group-title="TV" radio="false",RTV IJsselmond
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434620&id=141434621&_is_live=True
+#EXTINF:0 tvg-id="141434516" tvg-chno="780" tvg-name="RegioTV Tiel" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200629/20200629092733547gmk.png" group-title="TV" radio="false",RegioTV Tiel
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434516&id=141434517&_is_live=True
+#EXTINF:0 tvg-id="141433216" tvg-chno="781" tvg-name="RTV Slogo" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/201912121202479763t0.png" group-title="TV" radio="false",RTV Slogo
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433216&id=141433345&_is_live=True
+#EXTINF:0 tvg-id="1247091506" tvg-chno="782" tvg-name="ZO!34" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202207/20220721/44/20220721144039789ikl.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1247091506&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",ZO!34
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1247091506&id=1247091507&_is_live=True
+#EXTINF:0 tvg-id="141433528" tvg-chno="783" tvg-name="RTV Focus Zwolle" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202110/20211028/13/20211028105513897z4g.jpg" group-title="TV" radio="false",RTV Focus Zwolle
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433528&id=141433529&_is_live=True
+#EXTINF:0 tvg-id="141432978" tvg-chno="784" tvg-name="TVSoest" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624094903548uf2.png" group-title="TV" radio="false",TVSoest
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141432978&id=141432981&_is_live=True
+#EXTINF:0 tvg-id="141521858" tvg-chno="786" tvg-name="Omroep P&M" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202102/20210202/50/202102020948530610i2.png" group-title="TV" radio="false",Omroep P&M
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141521858&id=141521860&_is_live=True
+#EXTINF:0 tvg-id="141433666" tvg-chno="787" tvg-name="Delta TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624094934611fux.png" group-title="TV" radio="false",Delta TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433666&id=141433668&_is_live=True
+#EXTINF:0 tvg-id="141433916" tvg-chno="788" tvg-name="NOOS TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624095003553a80.png" group-title="TV" radio="false",NOOS TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433916&id=141433917&_is_live=True
+#EXTINF:0 tvg-id="141522242" tvg-chno="789" tvg-name="D-TV Maashorst" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/202006240950395930pw.png" group-title="TV" radio="false",D-TV Maashorst
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522242&id=141522244&_is_live=True
+#EXTINF:0 tvg-id="141521819" tvg-chno="790" tvg-name="Twente TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200629/2020062909275959412u.png" group-title="TV" radio="false",Twente TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141521819&id=141521820&_is_live=True
+#EXTINF:0 tvg-id="141432544" tvg-chno="791" tvg-name="LON-tv" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624095113620c3m.jpg" group-title="TV" radio="false",LON-tv
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141432544&id=141432545&_is_live=True
+#EXTINF:0 tvg-id="141433104" tvg-chno="792" tvg-name="ZuidWest TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212121812957jfg.png" group-title="TV" radio="false",ZuidWest TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433104&id=141433106&_is_live=True
+#EXTINF:0 tvg-id="141433346" tvg-chno="793" tvg-name="RTV Rijnstreek" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200629/20200629092838632e3l.png" group-title="TV" radio="false",RTV Rijnstreek
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433346&id=141433348&_is_live=True
+#EXTINF:0 tvg-id="141521719" tvg-chno="795" tvg-name="TV Valkenburg" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/202006240951446073mt.png" group-title="TV" radio="false",TV Valkenburg
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141521719&id=141521721&_is_live=True
+#EXTINF:0 tvg-id="141521742" tvg-chno="796" tvg-name="LEO TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624095213547uwe.png" group-title="TV" radio="false",LEO TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141521742&id=141521743&_is_live=True
+#EXTINF:0 tvg-id="141433440" tvg-chno="797" tvg-name="Omroep Veldhoven" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624095249598vdk.png" group-title="TV" radio="false",Omroep Veldhoven
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433440&id=141433441&_is_live=True
+#EXTINF:0 tvg-id="141433404" tvg-chno="799" tvg-name="BIE OS" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202007/20200701/202007010947347353ku.png" group-title="TV" radio="false",BIE OS
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433404&id=141433405&_is_live=True
+#EXTINF:0 tvg-id="1122862252" tvg-chno="800" tvg-name="NH Gooi" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202201/20220110/29/20220110091140137t7d.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1122862252&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",NH Gooi
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1122862252&id=1122862253&_is_live=True
+#EXTINF:0 tvg-id="141522167" tvg-chno="801" tvg-name="DNO TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202007/20200710/20200710131701181rwy.png" group-title="TV" radio="false",DNO TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522167&id=141522168&_is_live=True
+#EXTINF:0 tvg-id="141434208" tvg-chno="802" tvg-name="Hofstreek TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624095459680u3s.png" group-title="TV" radio="false",Hofstreek TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434208&id=141434210&_is_live=True
+#EXTINF:0 tvg-id="141433336" tvg-chno="803" tvg-name="Rotterdam Podium" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202007/20200716/20200716115506188qv8.png" group-title="TV" radio="false",Rotterdam Podium
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433336&id=141433337&_is_live=True
+#EXTINF:0 tvg-id="141434476" tvg-chno="804" tvg-name="AAVISIE" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212111627796c4o.png" group-title="TV" radio="false",AAVISIE
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434476&id=141434477&_is_live=True
+#EXTINF:0 tvg-id="141522435" tvg-chno="805" tvg-name="Noordkop Centraal TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624095528612rmd.png" group-title="TV" radio="false",Noordkop Centraal TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522435&id=141522436&_is_live=True
+#EXTINF:0 tvg-id="269904576" tvg-chno="809" tvg-name="L.O.V.E. TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202007/20200710/202007101322385844yy.png" group-title="TV" radio="false",L.O.V.E. TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=269904576&id=269904577&_is_live=True
+#EXTINF:0 tvg-id="141433790" tvg-chno="811" tvg-name="Omroep Venlo TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624095633565p58.png" group-title="TV" radio="false",Omroep Venlo TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433790&id=141433857&_is_live=True
+#EXTINF:0 tvg-id="141522127" tvg-chno="813" tvg-name="TV Krant Rucphen" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202007/20200701/20200701145503538hu2.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141522127&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",TV Krant Rucphen
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522127&id=141522128&_is_live=True
+#EXTINF:0 tvg-id="141522342" tvg-chno="814" tvg-name="RTV Meppel" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624095733549ym1.jpg" group-title="TV" radio="false",RTV Meppel
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522342&id=141522343&_is_live=True
+#EXTINF:0 tvg-id="141433548" tvg-chno="816" tvg-name="HoiTV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212112758068kj4.png" group-title="TV" radio="false",HoiTV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433548&id=141433549&_is_live=True
+#EXTINF:0 tvg-id="141521782" tvg-chno="817" tvg-name="GL8 Media" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624095814610lfe.png" group-title="TV" radio="false",GL8 Media
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141521782&id=141521783&_is_live=True
+#EXTINF:0 tvg-id="141434600" tvg-chno="818" tvg-name="Omroep PIM" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/2019121211414294619v.png" group-title="TV" radio="false",Omroep PIM
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434600&id=141434601&_is_live=True
+#EXTINF:0 tvg-id="141433156" tvg-chno="819" tvg-name="RTV Slos" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212120452959s3w.png" group-title="TV" radio="false",RTV Slos
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433156&id=141433157&_is_live=True
+#EXTINF:0 tvg-id="141433856" tvg-chno="820" tvg-name="Unity.NU" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200629/20200629092943559sk9.png" group-title="TV" radio="false",Unity.NU
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433856&id=141434049&_is_live=True
+#EXTINF:0 tvg-id="141434016" tvg-chno="821" tvg-name="RTV Purmerend" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624095843655xjz.png" group-title="TV" radio="false",RTV Purmerend
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434016&id=141434017&_is_live=True
+#EXTINF:0 tvg-id="204036988" tvg-chno="823" tvg-name="RTV Ronde Venen" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624095913721d2d.png" group-title="TV" radio="false",RTV Ronde Venen
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=204036988&id=204036997&_is_live=True
+#EXTINF:0 tvg-id="1185632492" tvg-chno="826" tvg-name="Studio Rheden TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202204/20220419/68/20220419120729875v98.jpg" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1185632492&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Studio Rheden TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1185632492&id=1185632493&_is_live=True
+#EXTINF:0 tvg-id="141522530" tvg-chno="827" tvg-name="Omroep Tilburg TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/202006241000335428ug.png" group-title="TV" radio="false",Omroep Tilburg TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522530&id=141522531&_is_live=True
+#EXTINF:0 tvg-id="141433752" tvg-chno="829" tvg-name="Den Haag TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/2020062410013355446h.png" group-title="TV" radio="false",Den Haag TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433752&id=141433753&_is_live=True
+#EXTINF:0 tvg-id="1250017705" tvg-chno="830" tvg-name="RTV Horizon" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202207/20220725/29/20220725092228725j3k.jpg" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1250017705&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",RTV Horizon
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1250017705&id=1250017706&_is_live=True
+#EXTINF:0 tvg-id="290233863" tvg-chno="833" tvg-name="RTV Papendrecht" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200625/20200625151748509ct4.png" group-title="TV" radio="false",RTV Papendrecht
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=290233863&id=546918055&_is_live=True
+#EXTINF:0 tvg-id="141521695" tvg-chno="834" tvg-name="RPL Woerden" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212114537853v5j.png" group-title="TV" radio="false",RPL Woerden
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141521695&id=141521696&_is_live=True
+#EXTINF:0 tvg-id="141434148" tvg-chno="835" tvg-name="Omroep Assen TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624100233540xsl.png" group-title="TV" radio="false",Omroep Assen TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434148&id=141434149&_is_live=True
+#EXTINF:0 tvg-id="141433568" tvg-chno="836" tvg-name="RTV1 Stadskanaal" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202203/20220314/18/2022031413381689372z.png" group-title="TV" radio="false",RTV1 Stadskanaal
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433568&id=141433569&_is_live=True
+#EXTINF:0 tvg-id="141433384" tvg-chno="837" tvg-name="Omroep Best TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/202006241002596042q2.jpg" group-title="TV" radio="false",Omroep Best TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433384&id=141433385&_is_live=True
+#EXTINF:0 tvg-id="141433648" tvg-chno="838" tvg-name="ATOS" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212111753063jbp.png" group-title="TV" radio="false",ATOS
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433648&id=141433649&_is_live=True
+#EXTINF:0 tvg-id="141434496" tvg-chno="839" tvg-name="Castricum TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202007/20200710/20200710132503593qmm.png" group-title="TV" radio="false",Castricum TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434496&id=141434497&_is_live=True
+#EXTINF:0 tvg-id="290233912" tvg-chno="840" tvg-name="RTV Krimpenerwaard" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624100333497oiv.png" group-title="TV" radio="false",RTV Krimpenerwaard
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=290233912&id=290233913&_is_live=True
+#EXTINF:0 tvg-id="141433692" tvg-chno="841" tvg-name="Regio Noordkop TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624100404594mws.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141433692&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Regio Noordkop TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433692&id=141433693&_is_live=True
+#EXTINF:0 tvg-id="141433859" tvg-chno="842" tvg-name="GooiTV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624100428616gfs.png" group-title="TV" radio="false",GooiTV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433859&id=141433862&_is_live=True
+#EXTINF:0 tvg-id="141521839" tvg-chno="844" tvg-name="XON" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202201/20220124/70/20220124132501911nsh.png" group-title="TV" radio="false",XON
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141521839&id=141521840&_is_live=True
+#EXTINF:0 tvg-id="141433236" tvg-chno="845" tvg-name="DTV Den Bosch" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202007/20200710/20200710132609739shj.png" group-title="TV" radio="false",DTV Den Bosch
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433236&id=141433237&_is_live=True
+#EXTINF:0 tvg-id="141522238" tvg-chno="848" tvg-name="Slotstad TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/20200624100528554lvq.png" group-title="TV" radio="false",Slotstad TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522238&id=141522239&_is_live=True
+#EXTINF:0 tvg-id="153713538" tvg-chno="849" tvg-name="Omroep Dommelland" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202110/20211028/41/202110281023206823w0.png" group-title="TV" radio="false",Omroep Dommelland
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=153713538&id=153713547&_is_live=True
+#EXTINF:0 tvg-id="141522455" tvg-chno="850" tvg-name="RTV Heemskerk" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200624/202006241006096026ec.png" group-title="TV" radio="false",RTV Heemskerk
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522455&id=141522456&_is_live=True
+#EXTINF:0 tvg-id="141433996" tvg-chno="852" tvg-name="Altena TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/201912/20191212/20191212114637945u8q.png" group-title="TV" radio="false",Altena TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433996&id=141433997&_is_live=True
+#EXTINF:0 tvg-id="141522510" tvg-chno="854" tvg-name="Capelle TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200629/20200629093014608rxw.png" group-title="TV" radio="false",Capelle TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141522510&id=141522511&_is_live=True
+#EXTINF:0 tvg-id="141434312" tvg-chno="855" tvg-name="RTV NOF" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202110/20211028/39/20211028104828994ap5.png" group-title="TV" radio="false",RTV NOF
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434312&id=141434313&_is_live=True
+#EXTINF:0 tvg-id="141433936" tvg-chno="856" tvg-name="GO-TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202207/20220721/79/20220721143639839znd.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=141433936&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",GO-TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141433936&id=141433937&_is_live=True
+#EXTINF:0 tvg-id="141521715" tvg-chno="857" tvg-name="Ons West Brabant" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202006/20200629/202006290931247534o3.png" group-title="TV" radio="false",Ons West Brabant
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141521715&id=141521716&_is_live=True
+#EXTINF:0 tvg-id="141434660" tvg-chno="858" tvg-name="Regio90TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202007/20200713/2020071308075855230v.png" group-title="TV" radio="false",Regio90TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=141434660&id=141434661&_is_live=True
+#EXTINF:0 tvg-id="252058638" tvg-chno="859" tvg-name="Land van Cuijk TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202203/20220314/11/20220314124729071ads.png" group-title="TV" radio="false",Land van Cuijk TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=252058638&id=252058639&_is_live=True
+#EXTINF:0 tvg-id="580748354" tvg-chno="860" tvg-name="Omroep Zulthe TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202110/20211028/79/202110281103488769zy.png" group-title="TV" radio="false",Omroep Zulthe TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=580748354&id=580748355&_is_live=True
+#EXTINF:0 tvg-id="1247091515" tvg-chno="861" tvg-name="Omroep Lingewaard" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202207/20220721/36/20220721142725588qkk.jpg" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1247091515&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Omroep Lingewaard
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1247091515&id=1247091516&_is_live=True
+#EXTINF:0 tvg-id="1247091476" tvg-chno="862" tvg-name="TV Aalsmeer" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202207/20220721/22/20220721142614788ccv.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1247091476&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",TV Aalsmeer
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1247091476&id=1247091477&_is_live=True
+#EXTINF:0 tvg-id="1247225869" tvg-chno="863" tvg-name="RTV Zeewolde" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202207/20220721/36/20220721142455672hc2.jpg" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1247225869&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",RTV Zeewolde
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1247225869&id=1247225870&_is_live=True
+#EXTINF:0 tvg-id="1247230641" tvg-chno="864" tvg-name="RTV Hollands Midden" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202207/20220721/7/202207211424047870xu.jpg" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1247230641&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",RTV Hollands Midden
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1247230641&id=1247230642&_is_live=True
+#EXTINF:0 tvg-id="1239158687" tvg-chno="866" tvg-name="Sleutelstad" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202207/20220706/13/202207061207240403iz.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1239158687&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Sleutelstad
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1239158687&id=1239158688&_is_live=True
+#EXTINF:0 tvg-id="1127013062" tvg-chno="867" tvg-name="LOVO - MTV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202201/20220124/0/20220124133701868vi4.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1127013062&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",LOVO - MTV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1127013062&id=1127013063&_is_live=True
+#EXTINF:0 tvg-id="1127016560" tvg-chno="868" tvg-name="Landsmeer TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202201/20220124/89/20220124133836840440.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1127016560&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Landsmeer TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1127016560&id=1127016561&_is_live=True
+#EXTINF:0 tvg-id="1131357665" tvg-chno="869" tvg-name="Gouwestad TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202201/20220124/65/2022012411160167239j.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1131357665&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Gouwestad TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1131357665&id=1131357666&_is_live=True
+#EXTINF:0 tvg-id="1154012386" tvg-chno="870" tvg-name="TV AA en Hunze" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202203/20220302/1/20220302133032042yrm.jpg" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1154012386&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",TV AA en Hunze
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1154012386&id=1154012387&_is_live=True
+#EXTINF:0 tvg-id="1165619075" tvg-chno="871" tvg-name="HTR TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202203/20220321/36/20220321135122237yk6.jpg" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1165619075&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",HTR TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1165619075&id=1165619076&_is_live=True
+#EXTINF:0 tvg-id="1264995528" tvg-chno="872" tvg-name="Omroep Delft" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202208/20220830/71/20220830112115578v3r.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1264995528&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Omroep Delft
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1264995528&id=1264995529&_is_live=True
+#EXTINF:0 tvg-id="1308431386" tvg-chno="873" tvg-name="Accent TV" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202212/20221213/20/20221213091309429nmq.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1308431386&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",Accent TV
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1308431386&id=1308431387&_is_live=True
+#EXTINF:0 tvg-id="1312401917" tvg-chno="874" tvg-name="RTV80" tvg-logo="https://t-mobiletv.nl:443/CPS/images/universal/film/logo/202212/20221223/6/20221223100043879fzv.png" catchup="default" catchup-source="plugin://plugin.video.tmobile/?_=play_video&type=program&channel=1312401917&id={catchup-id}&pvr=1&_l=.pvr" catchup-days="7" group-title="TV" radio="false",RTV80
+plugin://plugin.video.tmobile/?_=play_video&type=channel&channel=1312401917&id=1312401918&_is_live=True

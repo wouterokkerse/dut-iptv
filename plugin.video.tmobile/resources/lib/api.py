@@ -1,5 +1,6 @@
-import base64, json, os, random, re, string, time, xbmc
+import base64, glob, json, os, random, re, string, time, xbmc
 
+from collections import OrderedDict
 from resources.lib.base.l1.constants import ADDON_ID, ADDON_PROFILE
 from resources.lib.base.l2 import settings
 from resources.lib.base.l2.log import log
@@ -11,6 +12,28 @@ from resources.lib.base.l5.api import api_download, api_get_channels
 from resources.lib.constants import CONST_BASE_HEADERS, CONST_URLS, CONST_IMAGES
 from resources.lib.util import plugin_process_info
 from urllib.parse import parse_qs, urlparse, quote_plus
+from xml.sax.saxutils import escape
+
+def _tmobile_headers(csrf_token=''):
+    headers = {
+        'Accept': '*/*',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'en-US,en;q=0.9,nl;q=0.8',
+        'Cache-Control': 'no-cache',
+        'Content-Type': 'application/json',
+        'DNT': '1',
+        'Origin': 'https://tv.odido.nl',
+        'Pragma': 'no-cache',
+        'Referer': 'https://tv.odido.nl/',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-origin',
+    }
+
+    if csrf_token:
+        headers['X_CSRFToken'] = csrf_token
+
+    return headers
 
 #Included from base.l7.plugin
 #api_clean_after_playback
@@ -523,6 +546,182 @@ def api_vod_seasons(type, id, use_cache=True):
             write_file(file=file, data=data, isJSON=True)
 
     return {'data': data, 'cache': cache}
+
+def _tmobile_chunked(values, size):
+    for idx in range(0, len(values), size):
+        yield values[idx:idx + size]
+
+def _tmobile_format_xmltv_timestamp(epoch_ms):
+    return time.strftime('%Y%m%d%H%M%S +0000', time.gmtime(int(epoch_ms) // 1000))
+
+def _tmobile_programme_to_xml(programme):
+    if not check_key(programme, 'ID') or not check_key(programme, 'channelID') or not check_key(programme, 'startTime') or not check_key(programme, 'endTime') or not check_key(programme, 'name'):
+        return ''
+
+    attrs = [
+        'start="{start}"'.format(start=_tmobile_format_xmltv_timestamp(programme['startTime'])),
+        'stop="{stop}"'.format(stop=_tmobile_format_xmltv_timestamp(programme['endTime'])),
+        'channel="{channel}"'.format(channel=escape(str(programme['channelID']))),
+    ]
+
+    if check_key(programme, 'ID') and ((check_key(programme, 'isCUTV') and str(programme['isCUTV']) == '1') or (check_key(programme, 'CUTVStatus') and str(programme['CUTVStatus']) == '1')):
+        attrs.append('catchup-id="{catchup_id}"'.format(catchup_id=escape(str(programme['ID']))))
+
+    lines = ['<programme {attrs}>'.format(attrs=' '.join(attrs))]
+    lines.append('<title lang="nl">{}</title>'.format(escape(str(programme['name']))))
+
+    subtitle = ''
+
+    if check_key(programme, 'playbillSeries') and check_key(programme['playbillSeries'], 'sitcomName'):
+        subtitle = str(programme['playbillSeries']['sitcomName']).strip()
+
+    if subtitle:
+        lines.append('<sub-title lang="nl">{}</sub-title>'.format(escape(subtitle)))
+        lines.append('<desc lang="nl">{}</desc>'.format(escape(subtitle)))
+
+    genres = []
+
+    if check_key(programme, 'genres'):
+        for genre in programme['genres']:
+            if check_key(genre, 'genreName'):
+                genres.append(str(genre['genreName']))
+
+    for genre in genres:
+        lines.append('<category lang="nl">{}</category>'.format(escape(genre)))
+
+    if check_key(programme, 'picture') and check_key(programme['picture'], 'posters') and len(programme['picture']['posters']) > 0:
+        lines.append('<icon src="{}"></icon>'.format(escape(str(programme['picture']['posters'][0]))))
+
+    lines.append('</programme>')
+
+    return ''.join(lines)
+
+def _tmobile_fetch_playbill_window(session, profile, channel_ids, start_time, end_time, count='128'):
+    url = 'https://tv.odido.nl/VSP/V3/QueryPlaybillListStcProps?SID=queryPlaybillListStcProps3&DEVICE=PC&DID={devicekey}&from=throughMSAAccess'.format(devicekey=profile['devicekey'])
+    payload = {
+        'needChannel': '0',
+        'queryChannel': {
+            'channelIDs': channel_ids,
+            'isReturnAllMedia': '1',
+        },
+        'queryPlaybill': {
+            'count': str(count),
+            'endTime': int(end_time),
+            'isFillProgram': '1',
+            'offset': '0',
+            'startTime': int(start_time),
+            'type': '0',
+        }
+    }
+
+    response = session.post(url, json=payload, timeout=30)
+
+    try:
+        data = response.json()
+    except:
+        return None
+
+    if response.status_code != 200 or not data or not check_key(data, 'result') or not check_key(data['result'], 'retCode') or data['result']['retCode'] != '000000000':
+        return None
+
+    return data
+
+def _tmobile_get_live_epg():
+    channels = api_get_channels()
+
+    if not channels:
+        return None
+
+    if not api_get_session():
+        return None
+
+    profile = load_profile(profile_id=1)
+
+    if not profile or not check_key(profile, 'devicekey') or not check_key(profile, 'csrf_token'):
+        return None
+
+    session = Session(headers=_tmobile_headers(profile['csrf_token']), cookies_key='cookies')
+
+    try:
+        programmes_by_channel = {}
+        now = int(time.time())
+        windows = []
+
+        for day_offset in range(-7, 2):
+            start_time = (now + (day_offset * 86400)) * 1000
+            end_time = start_time + (86400 * 1000)
+            windows.append((start_time, end_time))
+
+        for channel_chunk in _tmobile_chunked(list(channels.keys()), 20):
+            for start_time, end_time in windows:
+                data = _tmobile_fetch_playbill_window(session, profile, channel_chunk, start_time, end_time)
+
+                if not data or not check_key(data, 'channelPlaybills'):
+                    continue
+
+                for row in data['channelPlaybills']:
+                    if not check_key(row, 'playbillLites'):
+                        continue
+
+                    for programme in row['playbillLites']:
+                        if not check_key(programme, 'channelID') or not check_key(programme, 'ID'):
+                            continue
+
+                        channel_id = str(programme['channelID'])
+
+                        if channel_id not in programmes_by_channel:
+                            programmes_by_channel[channel_id] = OrderedDict()
+
+                        programmes_by_channel[channel_id][str(programme['ID'])] = programme
+
+        return programmes_by_channel
+    finally:
+        try:
+            session.close()
+        except:
+            pass
+
+def _tmobile_write_epg_cache(programmes_by_channel):
+    cache_dir = os.path.join(ADDON_PROFILE, 'cache', 'tmobile')
+
+    if not os.path.isdir(cache_dir):
+        os.makedirs(cache_dir)
+
+    for stale_file in glob.glob(os.path.join(cache_dir, '*.xml')):
+        try:
+            os.remove(stale_file)
+        except:
+            pass
+
+    written = 0
+
+    for channel_id, programmes in programmes_by_channel.items():
+        xml = []
+
+        for _, programme in sorted(programmes.items(), key=lambda item: int(item[1].get('startTime', 0))):
+            item_xml = _tmobile_programme_to_xml(programme)
+
+            if item_xml:
+                xml.append(item_xml)
+
+        if not xml:
+            continue
+
+        file_name = base64.b32encode(channel_id.encode('utf-8')).decode('utf-8') + '.xml'
+        write_file(file=os.path.join('cache', 'tmobile', file_name), data=''.join(xml), isJSON=False)
+        written += 1
+
+    write_file(file=os.path.join('tmp', 't.epg.timestamp'), data=str(int(time.time())), isJSON=False)
+
+    return written > 0
+
+def api_get_all_epg():
+    programmes_by_channel = _tmobile_get_live_epg()
+
+    if not programmes_by_channel:
+        return False
+
+    return _tmobile_write_epg_cache(programmes_by_channel)
 
 def api_vod_subscription():
     return None

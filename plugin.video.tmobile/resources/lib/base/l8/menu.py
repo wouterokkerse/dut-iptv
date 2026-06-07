@@ -2,7 +2,7 @@ import _strptime
 import datetime, json, os, pytz, re, string, sys, time, xbmc, xbmcaddon, xbmcplugin
 
 from fuzzywuzzy import fuzz
-from resources.lib.api import api_add_to_watchlist, api_get_profiles, api_set_profile, api_list_watchlist, api_login, api_play_url, api_remove_from_watchlist, api_search, api_vod_download, api_vod_season, api_vod_seasons, api_watchlist_listing
+from resources.lib.api import api_add_to_watchlist, api_get_all_epg, api_get_profiles, api_set_profile, api_list_watchlist, api_login, api_play_url, api_remove_from_watchlist, api_search, api_vod_download, api_vod_season, api_vod_seasons, api_watchlist_listing
 from resources.lib.base.l1.constants import ADDON_ID, ADDON_PROFILE, ADDON_VERSION, ADDONS_PATH, AUDIO_LANGUAGES, PROVIDER_NAME
 from resources.lib.base.l2 import settings
 from resources.lib.base.l2.log import log
@@ -13,7 +13,7 @@ from resources.lib.base.l4.exceptions import Error
 from resources.lib.base.l5.api import api_download, api_get_channels, api_get_epg_by_date_channel, api_get_epg_by_idtitle, api_get_genre_list, api_get_list, api_get_list_by_first, api_get_vod_by_type
 from resources.lib.base.l7 import plugin
 from resources.lib.constants import CONST_BASE_HEADERS, CONST_FIRST_BOOT, CONST_HAS, CONST_IMAGES, CONST_LIBRARY, CONST_VOD_CAPABILITY, CONST_WATCHLIST, CONST_WATCHLIST_CAPABILITY
-from resources.lib.util import plugin_ask_for_creds, plugin_check_devices, plugin_check_first, plugin_login_error, plugin_post_login, plugin_process_info, plugin_process_playdata, plugin_process_vod, plugin_process_vod_season, plugin_process_vod_seasons, plugin_process_watchlist, plugin_process_watchlist_listing, plugin_renew_token, plugin_vod_subscription_filter
+from resources.lib.util import create_epg, create_playlist, plugin_ask_for_creds, plugin_check_devices, plugin_check_first, plugin_login_error, plugin_post_login, plugin_process_info, plugin_process_playdata, plugin_process_vod, plugin_process_vod_season, plugin_process_vod_seasons, plugin_process_watchlist, plugin_process_watchlist_listing, plugin_renew_token, plugin_vod_subscription_filter
 from urllib.parse import urlparse
 from xml.dom.minidom import parseString
 
@@ -50,6 +50,9 @@ def home(**kwargs):
 
         if CONST_HAS['search']:
             folder.add_item(label=_(_.SEARCH, _bold=True), path=plugin.url_for(func_or_url=search_menu))
+
+        if CONST_HAS['dutiptv']:
+            folder.add_item(label=_.SETUP_IPTV, path=plugin.url_for(func_or_url=iptv_simple_menu))
 
         if CONST_HAS['profiles']:
             if check_key(profile_settings, 'profile_name') and len(str(profile_settings['profile_name'])) > 0:
@@ -648,6 +651,7 @@ def settings_menu(**kwargs):
     if CONST_HAS['dutiptv']:
         folder.add_item(label=_.INSTALL_DUT_IPTV, path=plugin.url_for(func_or_url=install_connector))
         folder.add_item(label=_.SET_KODI, path=plugin.url_for(func_or_url=plugin._set_settings_kodi))
+        folder.add_item(label=_.SETUP_IPTV, path=plugin.url_for(func_or_url=iptv_simple_menu))
 
     folder.add_item(label=_.RESET_SESSION, path=plugin.url_for(func_or_url=login, ask=0))
 
@@ -665,6 +669,123 @@ def settings_menu(**kwargs):
     folder.add_item(label="Addon {}".format(_.SETTINGS), path=plugin.url_for(func_or_url=plugin._settings))
 
     return folder
+
+@plugin.route()
+def iptv_simple_menu(**kwargs):
+    folder = plugin.Folder(title=_.SETUP_IPTV)
+
+    folder.add_item(
+        label=_.SETUP_IPTV_FINISH,
+        info={'plot': _.SETUP_IPTV_FINISH_DESC},
+        path=plugin.url_for(func_or_url=setup_iptv_simple),
+    )
+
+    folder.add_item(
+        label=_.CREATE_PLAYLIST,
+        info={'plot': ''},
+        path=plugin.url_for(func_or_url=generate_playlist),
+    )
+
+    folder.add_item(
+        label=_.CREATE_EPG,
+        info={'plot': ''},
+        path=plugin.url_for(func_or_url=generate_epg),
+    )
+
+    return folder
+
+@plugin.route()
+def generate_playlist(**kwargs):
+    if create_playlist():
+        gui.ok(message=_.DONE)
+    else:
+        gui.ok(message=_.NO_ITEMS)
+
+@plugin.route()
+def generate_epg(**kwargs):
+    api_get_all_epg()
+
+    if create_epg():
+        gui.ok(message=_.DONE)
+    else:
+        gui.ok(message=_.NO_ITEMS)
+
+@plugin.route()
+def setup_iptv_simple(**kwargs):
+    playlist_ok = create_playlist()
+    api_get_all_epg()
+    epg_ok = create_epg()
+
+    if playlist_ok and epg_ok:
+        try:
+            addon_id = 'pvr.iptvsimple'
+
+            try:
+                IPTV_SIMPLE = xbmcaddon.Addon(id=addon_id)
+            except:
+                xbmc.executebuiltin('InstallAddon({})'.format(addon_id), True)
+
+                try:
+                    IPTV_SIMPLE = xbmcaddon.Addon(id=addon_id)
+                except:
+                    IPTV_SIMPLE = None
+
+            if IPTV_SIMPLE:
+                if IPTV_SIMPLE.getSettingBool("epgCache") != True:
+                    IPTV_SIMPLE.setSettingBool("epgCache", True)
+
+                if IPTV_SIMPLE.getSettingInt("epgPathType") != 0:
+                    IPTV_SIMPLE.setSettingInt("epgPathType", 0)
+
+                if IPTV_SIMPLE.getSetting("epgPath") != ADDON_PROFILE + "epg.xml":
+                    IPTV_SIMPLE.setSetting("epgPath", ADDON_PROFILE + "epg.xml")
+
+                if IPTV_SIMPLE.getSetting("epgTimeShift") != "0":
+                    IPTV_SIMPLE.setSetting("epgTimeShift", "0")
+
+                if IPTV_SIMPLE.getSettingBool("epgTSOverride") != False:
+                    IPTV_SIMPLE.setSettingBool("epgTSOverride", False)
+
+                if IPTV_SIMPLE.getSettingBool("m3uCache") != True:
+                    IPTV_SIMPLE.setSettingBool("m3uCache", True)
+
+                if IPTV_SIMPLE.getSettingInt("m3uPathType") != 0:
+                    IPTV_SIMPLE.setSettingInt("m3uPathType", 0)
+
+                if IPTV_SIMPLE.getSetting("m3uPath") != ADDON_PROFILE + "playlist.m3u8":
+                    IPTV_SIMPLE.setSetting("m3uPath", ADDON_PROFILE + "playlist.m3u8")
+
+                if IPTV_SIMPLE.getSettingInt("startNum") != 1:
+                    IPTV_SIMPLE.setSettingInt("startNum", 1)
+
+                if IPTV_SIMPLE.getSettingBool("numberByOrder") != False:
+                    IPTV_SIMPLE.setSettingBool("numberByOrder", False)
+
+                if IPTV_SIMPLE.getSettingInt("m3uRefreshMode") != 1:
+                    IPTV_SIMPLE.setSettingInt("m3uRefreshMode", 1)
+
+                if IPTV_SIMPLE.getSettingInt("m3uRefreshIntervalMins") != 120:
+                    IPTV_SIMPLE.setSettingInt("m3uRefreshIntervalMins", 120)
+
+                if IPTV_SIMPLE.getSettingInt("m3uRefreshHour") != 4:
+                    IPTV_SIMPLE.setSettingInt("m3uRefreshHour", 4)
+
+                if IPTV_SIMPLE.getSettingBool("catchupEnabled") != True:
+                    IPTV_SIMPLE.setSettingBool("catchupEnabled", True)
+
+                if IPTV_SIMPLE.getSettingInt("catchupDays") != 7:
+                    IPTV_SIMPLE.setSettingInt("catchupDays", 7)
+
+                method = 'Addons.SetAddonEnabled'
+                json_rpc(method, {"addonid": addon_id, "enabled": "false"})
+                xbmc.sleep(2000)
+                json_rpc(method, {"addonid": addon_id, "enabled": "true"})
+        except:
+            pass
+
+        gui.ok(message=_.DONE_NOREBOOT)
+    else:
+        gui.ok(message=_.NO_ITEMS)
 
 @plugin.route()
 def setup_upnext(**kwargs):
