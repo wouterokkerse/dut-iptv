@@ -233,6 +233,8 @@ class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
 
                     if '/PLTV/' in final_url:
                         stream_base_url[addon_name] = final_url.split('/PLTV/', 1)[0] + '/'
+                    elif '/TVOD/' in final_url:
+                        stream_base_url[addon_name] = final_url.split('/TVOD/', 1)[0] + '/'
 
                 xml = r.text
 
@@ -252,6 +254,8 @@ class HTTPRequestHandler(ProxyServer.BaseHTTPRequestHandler):
 
                             if '/PLTV/' in final_url:
                                 stream_base_url[addon_name] = final_url.split('/PLTV/', 1)[0] + '/'
+                            elif '/TVOD/' in final_url:
+                                stream_base_url[addon_name] = final_url.split('/TVOD/', 1)[0] + '/'
                         else:
                             r_retry.close()
 
@@ -980,7 +984,7 @@ def proxy_get_url(proxy, addon_name, ADDON_PROFILE):
     elif addon_name == 'tmobile':
         path_no_slash = path.lstrip('/')
 
-        if path_no_slash.startswith('PLTV/') and addon_name in stream_base_url:
+        if (path_no_slash.startswith('PLTV/') or path_no_slash.startswith('TVOD/')) and addon_name in stream_base_url:
             return stream_base_url[addon_name] + path_no_slash
 
         return stream_url[addon_name] + path
