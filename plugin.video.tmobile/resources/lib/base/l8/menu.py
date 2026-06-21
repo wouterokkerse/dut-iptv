@@ -1111,21 +1111,20 @@ def play_video(type=None, channel=None, id=None, data=None, title=None, from_beg
     path = playdata['path']
     license = playdata['license']
 
-    if CONST_HAS['startfrombeginning'] and from_beginning == 1:
+    if from_beginning == 1:
         playdata['properties']['seekTime'] = 0
-
-        if ADDON_ID == 'plugin.video.tmobile':
-            start = load_file(file='stream_start', isJSON=False)
-
-            if start:
-                time_diff = int(time.time()) - int(start)
-
-                if time_diff > 0:
-                    time_diff2 = 7190 - time_diff
-
-                    if time_diff2 > 0:
-                        playdata['properties']['seekTime'] = time_diff2
     else:
+        # Seek to the live edge if the stream is a CUTV stream representing a currently live program
+        if check_key(playdata, 'info') and check_key(playdata['info'], 'startTime') and check_key(playdata['info'], 'endTime'):
+            startTime = int(playdata['info']['startTime']) // 1000
+            endTime = int(playdata['info']['endTime']) // 1000
+            now = int(time.time())
+            if startTime <= now <= endTime:
+                elapsed = now - startTime
+                duration = endTime - startTime
+                seekTime = min(elapsed, duration - 10)
+                if seekTime > 0:
+                    playdata['properties']['seekTime'] = seekTime
         remove_stream_start()
 
     try:

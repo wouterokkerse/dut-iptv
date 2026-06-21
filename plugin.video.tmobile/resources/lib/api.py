@@ -300,55 +300,54 @@ def api_play_url(type, channel=None, id=None, video_data=None, from_beginning=0,
             pass
 
     if type == 'channel' and channel:
-        if not pvr == 1 or settings.getBool(key='ask_start_from_beginning') or from_beginning == 1:
-            session_post_data = {
-                'needChannel': '0',
-                'queryChannel': {
-                    'channelIDs': [
-                        channel,
-                    ],
-                    'isReturnAllMedia': '1',
-                },
-                'queryPlaybill': {
-                    'count': '1',
-                    'endTime': militime,
-                    'isFillProgram': '1',
-                    'offset': '0',
-                    'startTime': militime,
-                    'type': '0',
-                }
-            }
-
-            channel_url = '{base_url}/VSP/V3/QueryPlaybillListStcProps?SID=queryPlaybillListStcProps3&DEVICE=PC&DID={deviceID}&from=throughMSAAccess'.format(base_url=CONST_URLS['base'], deviceID=profile_settings['devicekey'])
-
-            download = api_download(url=channel_url, type='post', headers=headers, data=session_post_data, json_data=True, return_json=True)
-            data = download['data']
-            code = download['code']
-
-            if not code or not code == 200 or not data or not check_key(data, 'result') or not check_key(data['result'], 'retCode') or not data['result']['retCode'] == '000000000' or not check_key(data, 'channelPlaybills') or not check_key(data['channelPlaybills'][0], 'playbillLites') or not check_key(data['channelPlaybills'][0]['playbillLites'][0], 'ID'):
-                return playdata
-
-            id = data['channelPlaybills'][0]['playbillLites'][0]['ID']
-
-            session_post_data = {
-                'playbillID': id,
-                'channelNamespace': '310303',
+        session_post_data = {
+            'needChannel': '0',
+            'queryChannel': {
+                'channelIDs': [
+                    channel,
+                ],
                 'isReturnAllMedia': '1',
+            },
+            'queryPlaybill': {
+                'count': '1',
+                'endTime': militime,
+                'isFillProgram': '1',
+                'offset': '0',
+                'startTime': militime,
+                'type': '0',
             }
+        }
 
-            program_url = '{base_url}/VSP/V3/QueryPlaybill?from=throughMSAAccess'.format(base_url=CONST_URLS['base'])
+        channel_url = '{base_url}/VSP/V3/QueryPlaybillListStcProps?SID=queryPlaybillListStcProps3&DEVICE=PC&DID={deviceID}&from=throughMSAAccess'.format(base_url=CONST_URLS['base'], deviceID=profile_settings['devicekey'])
 
-            download = api_download(url=program_url, type='post', headers=headers, data=session_post_data, json_data=True, return_json=True)
-            data = download['data']
-            code = download['code']
+        download = api_download(url=channel_url, type='post', headers=headers, data=session_post_data, json_data=True, return_json=True)
+        data = download['data']
+        code = download['code']
 
-            if not code or not code == 200 or not data or not check_key(data, 'result') or not check_key(data['result'], 'retCode') or not data['result']['retCode'] == '000000000' or not check_key(data, 'playbillDetail'):
-                info = {}
-            else:
-                info = data['playbillDetail']
+        if not code or not code == 200 or not data or not check_key(data, 'result') or not check_key(data['result'], 'retCode') or not data['result']['retCode'] == '000000000' or not check_key(data, 'channelPlaybills') or not check_key(data['channelPlaybills'][0], 'playbillLites') or not check_key(data['channelPlaybills'][0]['playbillLites'][0], 'ID'):
+            return playdata
+
+        id = data['channelPlaybills'][0]['playbillLites'][0]['ID']
 
         session_post_data = {
-            "businessType": "BTV",
+            'playbillID': id,
+            'channelNamespace': '310303',
+            'isReturnAllMedia': '1',
+        }
+
+        program_url = '{base_url}/VSP/V3/QueryPlaybill?from=throughMSAAccess'.format(base_url=CONST_URLS['base'])
+
+        download = api_download(url=program_url, type='post', headers=headers, data=session_post_data, json_data=True, return_json=True)
+        data = download['data']
+        code = download['code']
+
+        if not code or not code == 200 or not data or not check_key(data, 'result') or not check_key(data['result'], 'retCode') or not data['result']['retCode'] == '000000000' or not check_key(data, 'playbillDetail'):
+            info = {}
+        else:
+            info = data['playbillDetail']
+
+        session_post_data = {
+            "businessType": "CUTV",
             "channelID": channel,
             "checkLock": {
                 "checkType": "0",
@@ -356,6 +355,7 @@ def api_play_url(type, channel=None, id=None, video_data=None, from_beginning=0,
             "isHTTPS": "1",
             "isReturnProduct": "1",
             "mediaID": mediaID,
+            "playbillID": id,
         }
     elif type == 'program' and id:
         if not pvr == 1:
